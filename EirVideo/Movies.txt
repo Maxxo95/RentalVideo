@@ -1,0 +1,6 @@
+Name: Gladiator, Price: 2.99
+Name: Star Wars 1, Price: 1.99
+Name: Infinity War, Price: 3.99
+Name: Napoleon, Price: 7.99
+Name: Black Panther, Price: 2.99
+Name: 300, Price: 1.99

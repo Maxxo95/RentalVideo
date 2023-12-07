@@ -5,15 +5,20 @@
  */
 package eirvideo;
 
-import  eirvideo.Products.Product;
-import eirvideo.Catalogs.Catalog;
-import eirvideo.Products.Movie;
+import  Products.Product;
+import Catalogs.Catalog;
+import Catalogs.DataIO.DataInput;
+import Catalogs.DataIO.DataOutput;
+import Catalogs.FileIO.FileInput;
+import Catalogs.FileIO.FileOutput;
+import Products.Movie;
 import java.util.ArrayList;
 
 public class EirVideo {
 
   
     public static void main(String[] args) {
+        /*
          Product movie1 = new Movie("PulpFiction", 3.99);
          Product movie2 = new Movie("Napoleon", 7.99);
          
@@ -27,7 +32,14 @@ public class EirVideo {
         for (int i = 0; i < catalogList.size(); i++) {
             Product product = catalogList.get(i);
             System.out.println("Product" + (i+1) + ": " + product.getName() + ", Price: " + product.getPrice());
+
+        
         }
+    */
+         DataInput input = new FileInput(); 
+         Catalog catalog = input.getData();
+         DataOutput output = new FileOutput();
+         output.saveData(catalog);
     }
             }
     

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eirvideo.Catalogs;
-import  eirvideo.Products.Product;
-import eirvideo.Catalogs.Catalog;
+package Catalogs;
+import  Products.Product;
+import Catalogs.Catalog;
 import java.util.ArrayList;
 
        
@@ -23,11 +23,19 @@ public class Catalog {
  public ArrayList<Product> getCatalog() {
     return library;
 }
+ public void setCatalog (ArrayList<Product> library){
+    this.library = library;
+}
  public void addProduct(Product product){
      library.add(product);
  }
   public void removeProduct(Product product) {
         library.remove(product);
     }
+
+    public ArrayList<Product> getProducts() {
+           return library;
+    }
+  
  
 }
