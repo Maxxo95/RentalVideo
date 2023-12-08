@@ -24,6 +24,7 @@ public class EirVideo {
        Rent rent = new Rent();
        
        rent.startMovies();
-    }
+       //TRY User 
+   }
             }
     
