@@ -9,7 +9,7 @@ import  eirvideo.Products.Product;
 import eirvideo.Catalogs.Catalog;
 import eirvideo.Products.Movie;
 import eirvideo.Users.Users;
-import eirvideo.Users.UsersManager;
+import eirvideo.
 import java.util.ArrayList;
 import java.util.Scanner;
 
