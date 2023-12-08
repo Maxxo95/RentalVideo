@@ -4,12 +4,9 @@
  * and open the template in the editor.
  */
 package Catalogs.FileIO;
-
 import Catalogs.Catalog;
-import Products.Product;
 import Products.ProductParser;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -18,11 +15,14 @@ import java.util.ArrayList;
 public class CSVDataParser implements FileDataParser {
     
     @Override
-    public Catalog parseData(ArrayList<Product> data) {
-        
-        ProductParser pp = new ProductParser();
-        Catalog catalog =  pp.addProduct(data);
-          return catalog;
+    public Catalog parseData(Catalog data) {
+       ProductParser pp = new ProductParser();
+    
+        Catalog catalog = new Catalog(); 
+       
+       catalog = pp.addProducts( data);
+
+        return catalog;
     }
 
   

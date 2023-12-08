@@ -6,6 +6,10 @@
 package Catalogs;
 import  Products.Product;
 import Catalogs.Catalog;
+import Catalogs.DataIO.DataInput;
+import Catalogs.DataIO.DataOutput;
+import Catalogs.FileIO.FileInput;
+import Catalogs.FileIO.FileOutput;
 import java.util.ArrayList;
 
        
@@ -13,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author maxim
  */
-public class Catalog {
+public class Catalog implements DataToFileCatalog {
  private ArrayList<Product> library = new ArrayList<>();
  
  public Catalog() {
@@ -33,9 +37,22 @@ public class Catalog {
         library.remove(product);
     }
 
-    public ArrayList<Product> getProducts() {
-           return library;
-    }
+   
+
+   public boolean isEmpty() {
+    return this.library.isEmpty();
+}
+   
+           @Override
+         public void DatatoFileCatalog (Catalog movieCat){      
+         DataInput input = new FileInput(); 
+         movieCat = input.getData();
+         DataOutput output = new FileOutput();
+         output.saveData(movieCat);
+} 
+
+}
+
+
   
  
-}

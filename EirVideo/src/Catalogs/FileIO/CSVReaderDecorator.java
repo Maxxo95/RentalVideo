@@ -7,6 +7,7 @@ package Catalogs.FileIO;
 
 
 
+import Catalogs.Catalog;
 import Products.Product;
 import java.util.ArrayList;
 
@@ -15,15 +16,15 @@ import java.util.ArrayList;
  * @author Lecturer
  */
 public class CSVReaderDecorator extends FileIO implements CSVReaderCheker {
-    private CSVReaderCheker component = new CSVReader();
+    private CSVReaderCheker component = new CSVMovieReader();
     
     public void errorMessage() {
         System.out.println("The file: " + filename + " cannot be located.");
     }
     
     @Override
-    public ArrayList<Product> readData() {
-        ArrayList<Product> data = component.readData();
+    public Catalog readData() {
+        Catalog data = component.readData();
         if (data.isEmpty()) errorMessage();
         return data;
     }

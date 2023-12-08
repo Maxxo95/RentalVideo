@@ -23,10 +23,10 @@ public class FileOutput extends FileIO implements DataOutput{
     {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".txt"));
-            ArrayList<Product> products = currentCatalog.getProducts();
+            ArrayList<Product> products = currentCatalog.getCatalog();
             
             for (Product product : products) {
-                bw.write("Name: " + product.getName() + ", Price: " + product.getPrice());
+                bw.write("Name: " + product.getName() + ", Price: " + product.getPrice() + product.getClass());
                 bw.newLine(); // Optional, adds a newline after each product
             }
             
