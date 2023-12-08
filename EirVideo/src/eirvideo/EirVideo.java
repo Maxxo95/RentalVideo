@@ -6,11 +6,7 @@
 package eirvideo;
 
 
-import Catalogs.Catalog;
-import Catalogs.DataIO.DataInput;
-import Catalogs.DataIO.DataOutput;
-import Catalogs.FileIO.FileInput;
-import Catalogs.FileIO.FileOutput;
+
 import Rents.Rent;
 
 
@@ -24,7 +20,7 @@ public class EirVideo {
        Rent rent = new Rent();
        
        rent.startMovies();
-       //TRY User 
-   }
+       // Here 
+    }
             }
     
