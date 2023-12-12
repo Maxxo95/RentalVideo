@@ -23,7 +23,7 @@ public class EirVideo {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n Main Menu"
+            System.out.println("\n Main Menuu"
                     + "\n Pick a choice");
             System.out.println("1. Movies");
             System.out.println("2. Book a Product");
@@ -38,7 +38,9 @@ public class EirVideo {
                     break;
                 case "2":
                      
-                   rent.startBooking();
+                       
+                   rent.startBooking();                  
+                   rent.completeCreditCard();
                     break;
                 case "3":
                     System.out.println("Exiting the program, thanks for chosing EirVideo");

@@ -3,12 +3,14 @@ package Rents;
 import Catalogs.Catalog;
 import Products.Movie;
 import Products.Product;
+import Rents.PaymentMethods.CreditCardPay;
+import Rents.PaymentMethods.PaymentMethod;
 import Users.Users;
 import UtilitiesFolder.Utilities;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Rent {
+public class Rent  {
     private Boolean isPayed;
     private int movieN = 0;
     private Users user = new Users("User", "Pass1234");
@@ -18,7 +20,7 @@ public class Rent {
 
     private ArrayList<Booking> bookings; // booking history  
     private Booking currentBooking;
-
+    CreditCardPay creditCardPayment = new CreditCardPay();
     private Product pickedMovie = new Movie("", 0.0);
     private Product movie = new Movie("", 0.0); //Movie test
 
@@ -49,8 +51,18 @@ public class Rent {
         System.out.println("You have picked " + pickedMovie.getName() + " rate " + pickedMovie.getPrice());
         
         currentBooking = new Booking(pickedMovie, user);
-         isPayed = currentBooking.getIsPayed();
+         isPayed = currentBooking.IsPayed();
+         
          System.out.println("Booking is payed? " + isPayed);
     }
-
+    
+    
+    public void completeCreditCard(){
+      
+        //isPayed = true;
+        currentBooking.setPaymentMethod(creditCardPayment);
+        currentBooking.processPayment();
+    }
+    
+    
 }
