@@ -8,6 +8,7 @@ package eirvideo;
 
 
 import Rents.Rent;
+import java.util.Scanner;
 
 
 public class EirVideo {
@@ -19,8 +20,37 @@ public class EirVideo {
    
        Rent rent = new Rent();
        
-       rent.startMovies();
-       // Here 
-    }
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n Main Menu"
+                    + "\n Pick a choice");
+            System.out.println("1. Movies");
+            System.out.println("2. Book a Product");
+            System.out.println("3. Salir");
+            System.out.print("Please input numbers only: \n");
+
+            String opcion = scanner.nextLine();
+
+            switch (opcion) {
+                case "1":
+                    rent.startMovies();
+                    break;
+                case "2":
+                     
+                   rent.startBooking();
+                    break;
+                case "3":
+                    System.out.println("Exiting the program, thanks for chosing EirVideo");
+                    System.exit(0);
+                default:
+                    System.out.println("Please only enter a number available in the options showed");
             }
+    }
+    
+    }
+}
+    
+
+            
     
