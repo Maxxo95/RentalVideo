@@ -12,10 +12,12 @@ package Products;
   public abstract class Product {
       private  String name= "";  
     private Double price = 0.0 ;
-    
+     private  boolean IsAvailable = true;
+     
     public  Product(String name, Double price){
       this.setName(name);
       this.setPrice(price);
+      this.setAvailability(IsAvailable);
   }
   
     public String getName(){
@@ -30,6 +32,12 @@ package Products;
     public void setPrice(Double price){
         this.price = price;
     }
+       public void setAvailability(Boolean IsAvailable){
+        this.IsAvailable = IsAvailable;
+    }
+       public Boolean getAvailability(){
+           return IsAvailable;
+       }
 }
 
     

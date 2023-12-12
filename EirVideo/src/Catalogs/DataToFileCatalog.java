@@ -16,7 +16,7 @@ import Catalogs.FileIO.FileOutput;
  */
 public interface DataToFileCatalog {
   
-     public void DatatoFileCatalog(Catalog cataloge) ;    
+     public Catalog DatatoFileCatalog(Catalog cataloge) ;    
          
 
 }

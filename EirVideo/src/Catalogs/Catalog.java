@@ -44,13 +44,26 @@ public class Catalog implements DataToFileCatalog {
 }
    
            @Override
-         public void DatatoFileCatalog (Catalog movieCat){      
+         public Catalog DatatoFileCatalog (Catalog movieCat){      
          DataInput input = new FileInput(); 
          movieCat = input.getData();
          DataOutput output = new FileOutput();
          output.saveData(movieCat);
+         return movieCat;
 } 
-
+ public int size() {
+      return library.size();
+       
+    }
+ 
+  public Product getProductAtIndex(int index) {
+        if (index >= 0 && index < library.size()) {
+            return library.get(index);
+        } else {
+            // Handle the case where the index is out of bounds
+            return null; // You can return null or throw an exception, depending on your requirements.
+        }
+    }   
 }
 
 

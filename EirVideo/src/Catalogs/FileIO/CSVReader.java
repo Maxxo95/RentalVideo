@@ -10,7 +10,7 @@ import Products.Product;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/*
 public class CSVReader extends FileIO implements CSVReaderCheker {
     ArrayList<Product> data = new ArrayList<>();
     
@@ -36,3 +36,4 @@ public class CSVReader extends FileIO implements CSVReaderCheker {
         return data;
     }
 }
+*/

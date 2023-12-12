@@ -26,7 +26,7 @@ public class FileOutput extends FileIO implements DataOutput{
             ArrayList<Product> products = currentCatalog.getCatalog();
             
             for (Product product : products) {
-                bw.write("Name: " + product.getName() + ", Price: " + product.getPrice() + product.getClass());
+               bw.write("Name: " + product.getName() + ", Price: " + product.getPrice() + " -" + product.getClass() + " -"+ product.getAvailability()) ;
                 bw.newLine(); // Optional, adds a newline after each product
             }
             
