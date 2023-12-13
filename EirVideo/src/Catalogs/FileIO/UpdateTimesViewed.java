@@ -41,7 +41,7 @@ public class UpdateTimesViewed extends FileIO implements DataOutput {
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".csv"));
             catalog.setCatalog(currentCatalog.getCatalog());
     bw.write("Name," + "Price," + "TimesViewed") ;         
-            
+            bw.newLine();
             for (Product product : catalog.getCatalog()) {
                bw.write(product.getName() + "," + product.getPrice() + "," + product.getTimesviewed()) ;
                 bw.newLine(); // Optional, adds a newline after each product
