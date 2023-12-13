@@ -8,6 +8,9 @@ package eirvideo;
 
 
 import Rents.Rent;
+import Users.UserLogIn;
+import Users.AddUser;
+import Users.Users;
 import java.util.Scanner;
 
 
@@ -15,7 +18,8 @@ public class EirVideo {
 
   
     public static void main(String[] args) {
-    
+    AddUser addUser  = new AddUser();
+    UserLogIn userlogin = new UserLogIn(addUser.getUsers());
     
    
        Rent rent = new Rent();
@@ -23,8 +27,23 @@ public class EirVideo {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n Main Menuu"
-                    + "\n Pick a choice");
+            System.out.print("TYPE YOU USERNAME : ");
+        String newUsername = scanner.nextLine();
+        System.out.print("TYPE YOUR PASSWORD : ");
+        String newPassword = scanner.nextLine();
+
+        addUser.RegisterUser(newUsername, newPassword);
+        
+        
+        System.out.print("TYPE YOU USERNAME : ");
+        String Username = scanner.nextLine();
+        System.out.print("TYPE YOUR PASSWORD : ");
+        String Password = scanner.nextLine();
+
+        userlogin.UserLogIn("","");
+        
+            System.out.println("\n Main Menu"
+                    + "\n Select an option");
             System.out.println("1. Movies");
             System.out.println("2. Book a Product");
             System.out.println("3. Salir");
