@@ -6,7 +6,6 @@
 package Products;
 
 import Catalogs.Catalog;
-import java.util.ArrayList;
 
 public class ProductParser {
   

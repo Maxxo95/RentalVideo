@@ -1,8 +1,6 @@
 Name: Gladiator, Price: 2.99 -class Products.Movie -true
-Name: Star Wars, Price: 1.99 -class Products.Movie -true
+Name: Star Wars 1, Price: 1.99 -class Products.Movie -true
 Name: Infinity War, Price: 3.99 -class Products.Movie -true
-Name: The Whale, Price: 4.99 -class Products.Movie -true
-Name: Phoenix, Price: 1.99 -class Products.Movie -true
-Name: Garfield, Price: 0.99 -class Products.Movie -true
 Name: Napoleon, Price: 7.99 -class Products.Movie -true
 Name: Avatar, Price: 2.99 -class Products.Movie -true
+Name: Phoenix, Price: 2.99 -class Products.Movie -true

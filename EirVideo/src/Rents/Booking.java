@@ -24,7 +24,7 @@ public class Booking {
     private Boolean isPayed = false;
     CreditCardPay creditCardPayment = new CreditCardPay();
     private Booking currentBooking;
-
+   
 
     public Booking(Product product, Users customer) {
         this.setProduct(product);
@@ -60,7 +60,13 @@ public class Booking {
         } else {
             System.out.println("No payment method set.");
         }
+        
     }
+    public int IDcounter(){
+            Utilities ut = new Utilities();
+          return  ut.readAndUpdateBookID();
+            
+        }
           
 
         

@@ -17,32 +17,33 @@ import java.util.ArrayList;
  *
  * @author maxim
  */
-public class Catalog implements DataToFileCatalog {
+public class Catalog implements DataToFileCatalog   {
 
-    private ArrayList<Product> library = new ArrayList<>();
+    private ArrayList<Product> catalog = new ArrayList<>();
 
     public Catalog() {
-        this.library = new ArrayList<>();
+        this.getCatalog() ;
     }
 
     public ArrayList<Product> getCatalog() {
-        return library;
+        return catalog;
     }
+    
 
-    public void setCatalog(ArrayList<Product> library) {
-        this.library = library;
+    public void setCatalog(ArrayList<Product> catalog) {
+        this.catalog = catalog;
     }
 
     public void addProduct(Product product) {
-        library.add(product);
+        catalog.add(product);
     }
 
     public void removeProduct(Product product) {
-        library.remove(product);
+        catalog.remove(product);
     }
 
     public boolean isEmpty() {
-        return this.library.isEmpty();
+        return this.catalog.isEmpty();
     }
 
     @Override
@@ -59,13 +60,13 @@ public class Catalog implements DataToFileCatalog {
     }
 
     public int size() {
-        return library.size();
+        return catalog.size();
 
     }
 
     public Product getProductAtIndex(int index) {
-        if (index >= 0 && index < library.size()) {
-            return library.get(index);
+        if (index >= 0 && index < catalog.size()) {
+            return catalog.get(index);
         } else {
             // Handle the case where the index is out of bounds
             return null; // You can return null or throw an exception, depending on your requirements.

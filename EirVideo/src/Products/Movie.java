@@ -10,11 +10,14 @@ package Products;
  * @author maxim
  */
 public class Movie extends Product {
-   
+   private int timesViewed ;
 
     public Movie(String name, Double price) {
         super(name, price);
+        
     }
+
+   
 
    
 

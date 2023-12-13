@@ -18,14 +18,16 @@ import java.util.ArrayList;
  * @author maxim
  */
 public class FileOutput extends FileIO implements DataOutput{
-     @Override
+       Catalog catalog = new Catalog(); 
+    @Override
     public void saveData(Catalog currentCatalog) {
     {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".txt"));
-            ArrayList<Product> products = currentCatalog.getCatalog();
+            catalog.setCatalog(currentCatalog.getCatalog());
             
-            for (Product product : products) {
+            
+            for (Product product : catalog.getCatalog()) {
                bw.write("Name: " + product.getName() + ", Price: " + product.getPrice() + " -" + product.getClass() + " -"+ product.getAvailability()) ;
                 bw.newLine(); // Optional, adds a newline after each product
             }

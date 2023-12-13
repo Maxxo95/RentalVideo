@@ -7,32 +7,45 @@ package Catalogs.FileIO;
 
 import Catalogs.Catalog;
 import Products.Movie;
-import Products.Product;
-import java.util.ArrayList;
-import java.util.Scanner;
 
+import java.util.Scanner;
 
 public class CSVMovieReader extends FileIO implements CSVReaderCheker {
     Catalog data = new Catalog();
+
     @Override
     public Catalog readData() {
         try {
-            Scanner sc = new Scanner(new java.io.FileReader(filename+".csv"));
+            Scanner sc = new Scanner(new java.io.FileReader(filename + ".csv"));
+
+            // Skip the header row
+            if (sc.hasNext()) {
+                sc.nextLine();
+            }
+
             while (sc.hasNext()) {
-                  String[] parts = sc.nextLine().split(",");
-           
-                if (parts.length == 2) {
+                String[] parts = sc.nextLine().split(",");
+
+                if (parts.length == 3) {
                     String name = parts[0].trim();
                     double price = Double.parseDouble(parts[1].trim());
-                  //  Product product = new Product(name, price){};
-                   Movie product = new Movie(name, price) ; // THis will say wich kind of product in case of implementing shows or books games etc
-                    data.addProduct(product);
+                    int timesViewed = Integer.parseInt(parts[2].trim());
+
+                    Movie movie = new Movie(name, price);
+                    movie.setName(name);
+                    movie.setPrice(price);
+                    movie.setTimesViewed(timesViewed);
+
+                    data.addProduct(movie);
                 } else {
-                    System.out.println("Invalid CSV format in line: " + parts);
-                }            }
+                    System.out.println("Invalid CSV format in line: " + String.join(", ", parts));
+                }
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
         return data;
     }
 }
+
+

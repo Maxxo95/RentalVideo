@@ -13,11 +13,12 @@ package Products;
       private  String name= "";  
     private Double price = 0.0 ;
      private  boolean IsAvailable = true;
-     
+       private int timesViewed ;
     public  Product(String name, Double price){
       this.setName(name);
       this.setPrice(price);
       this.setAvailability(IsAvailable);
+      this.getTimesviewed();
   }
   
     public String getName(){
@@ -38,6 +39,12 @@ package Products;
        public Boolean getAvailability(){
            return IsAvailable;
        }
+        public void setTimesViewed(int timesViewed) {
+       this.timesViewed = timesViewed;
+    }
+    public int getTimesviewed(){
+        return timesViewed;
+    }
 }
 
     

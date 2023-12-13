@@ -9,10 +9,7 @@ import Catalogs.Catalog;
 import Products.Product;
 import java.util.ArrayList;
 
-/**
- *
- * @author maxim
- */
+
 public interface CSVReaderCheker {
       public Catalog readData();
 }

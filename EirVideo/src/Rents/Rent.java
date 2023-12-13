@@ -49,7 +49,7 @@ public class Rent {
         System.out.println("Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();
         pickedMovie = movieCat.getProductAtIndex(movieN - 1);
-        System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice());
+        System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + " This movie has been wathc "+pickedMovie.getTimesviewed() + " times");
 
         currentBooking = new Booking(pickedMovie, user);
        
@@ -80,11 +80,14 @@ public class Rent {
                     currentBooking.setPaymentMethod(creditCardPayment);
                      creditCardPayment.completeCreditCard(currentBooking, creditCardPayment);
                      currentBooking.processPayment(currentBooking);
-                    
+                     
                      if(currentBooking.IsPayed() == false){
-                   
-                         break;}
-                    else {return;}
+                    break;}
+                     
+                    else {
+                         Utilities.writteTrend(pickedMovie);
+                         return;}
+                     
                 case "2":
                               
                   System.out.println("Under Construction" + currentBooking.IsPayed());
