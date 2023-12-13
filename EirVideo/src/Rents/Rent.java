@@ -1,10 +1,12 @@
 package Rents;
 
 import Catalogs.Catalog;
+import Catalogs.DataIO.DataOutput;
+import Catalogs.FileIO.UpdateTimesViewed;
 import Products.Movie;
 import Products.Product;
 import Rents.PaymentMethods.CreditCardPay;
-import Rents.PaymentMethods.PaymentMethod;
+
 import Users.Users;
 import UtilitiesFolder.Utilities;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class Rent {
     
     private int movieN = 0;
     private Users user = new Users("User", "Pass1234");
-
+    
     private Catalog movieCat = new Catalog();
     private Catalog activeMov = new Catalog();
 
@@ -24,7 +26,7 @@ public class Rent {
     CreditCardPay creditCardPayment = new CreditCardPay();
     private Product pickedMovie = new Movie("", 0.0);
     private Product movie = new Movie("", 0.0); //Movie test
-
+     private Product product ;
     public Rent() {
         this.setMovieCatalog(movieCat);
         movieCat = movieCat.DatatoFileCatalog(movieCat);
@@ -85,7 +87,11 @@ public class Rent {
                     break;}
                      
                     else {
-                         Utilities.writteTrend(pickedMovie);
+                         DataOutput output = new UpdateTimesViewed();
+                       //product.setTimesViewed((product.getTimesviewed())+1);
+                        product = currentBooking.getProduct(); 
+                      product.setTimesViewed( output.updateData(movieCat,product));
+                          
                          return;}
                      
                 case "2":

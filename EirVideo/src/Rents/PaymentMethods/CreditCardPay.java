@@ -5,6 +5,8 @@
  */
 package Rents.PaymentMethods;
 
+import Products.Movie;
+import Products.Product;
 import Rents.Booking;
 import UtilitiesFolder.Utilities;
 
@@ -16,6 +18,7 @@ public class CreditCardPay implements PaymentMethod {
    private String cardNumber ="";
     private String expirationDate="" ;
     private String cvv="";
+ private Product product ;   
     //CreditCardPay creditCardPayment = new CreditCardPay();
     public String getCardNumber(){
         return cardNumber;
@@ -48,7 +51,9 @@ public class CreditCardPay implements PaymentMethod {
     System.out.println("CVV: " + cvv);
     System.out.println("Payment processed successfully!");
     book.setPayment(Boolean.TRUE);
-   System.out.print( "Total of Bookings " + book.IDcounter());
+   System.out.println( "Total of Bookings " + book.IDcounter());
+   product =book.getProduct();
+   System.out.println(product.getName()+" "+ product.getPrice() + " This product has been rented "+ product.getTimesviewed()+ " times");
 } else {
     System.out.println("Payment processed Unsuccessfully!");
      System.out.print("Total of Bookings " +  book.IDcounter());

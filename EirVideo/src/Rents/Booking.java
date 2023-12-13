@@ -36,7 +36,9 @@ public class Booking {
     public void setProduct(Product product) {
         this.product = product;
     }
-
+    public Product getProduct(){
+        return this.product;
+    }
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }

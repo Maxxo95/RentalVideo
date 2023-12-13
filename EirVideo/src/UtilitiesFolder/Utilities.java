@@ -21,9 +21,7 @@ import java.util.Scanner;
 public class Utilities extends BookID {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void writteTrend(Product pickedMovie) {
-        
-    }
+  
     BookID file = new BookID();
     
   public int readAndUpdateBookID() {

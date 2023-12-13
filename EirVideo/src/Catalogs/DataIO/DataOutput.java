@@ -6,6 +6,7 @@
 package Catalogs.DataIO;
 
 import Catalogs.Catalog;
+import Products.Product;
 
 
 /**
@@ -14,4 +15,5 @@ import Catalogs.Catalog;
  */
 public interface DataOutput {
      public void saveData(Catalog currentCatalog);
+     public int updateData(Catalog currentCatalog, Product product);
 }
