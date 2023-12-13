@@ -48,9 +48,10 @@ public class CreditCardPay implements PaymentMethod {
     System.out.println("CVV: " + cvv);
     System.out.println("Payment processed successfully!");
     book.setPayment(Boolean.TRUE);
-   System.out.print( book.IDcounter());
+   System.out.print( "Total of Bookings " + book.IDcounter());
 } else {
     System.out.println("Payment processed Unsuccessfully!");
+     System.out.print("Total of Bookings " +  book.IDcounter());
 }
     }
 

@@ -16,7 +16,8 @@ import java.util.ArrayList;
  * @author Lecturer
  */
 public class CSVReaderDecorator extends FileIO implements CSVReaderCheker {
-    private CSVReaderCheker component = new CSVMovieReader();
+    private CSVReaderCheker component = new CSVMovieReader(); // from here movie reader called from the other can be accesed 
+    // as a show maybe with the decorator 
     
     public void errorMessage() {
         System.out.println("The file: " + filename + " cannot be located.");

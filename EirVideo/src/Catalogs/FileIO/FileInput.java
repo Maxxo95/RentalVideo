@@ -15,13 +15,12 @@ import Catalogs.FileIO.CSVReaderCheker;
  * @author maxim
  */
 public class FileInput extends FileIO implements DataInput {
-    CSVReaderCheker fr = new CSVReaderDecorator();
+    CSVReaderCheker reader = new CSVReaderDecorator();  //
     
     @Override
     public Catalog getData() {
-        Catalog data = fr.readData();
-        FileDataParser parser = new CSVDataParser();
-        Catalog currentCatalog = parser.parseData(data);
-        return currentCatalog;
+        Catalog data = reader.readData(); //from csv movieReader 
+        FileDataParser catalogParser = new CSVDataParser(); // interface and then parse data Catalog
+       return catalogParser.parseData(data); // is a catalog passing its data
     }
 }

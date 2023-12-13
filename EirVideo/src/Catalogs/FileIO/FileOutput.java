@@ -17,6 +17,7 @@ import java.util.ArrayList;
  *
  * @author maxim
  */
+
 public class FileOutput extends FileIO implements DataOutput{
        Catalog catalog = new Catalog(); 
     @Override

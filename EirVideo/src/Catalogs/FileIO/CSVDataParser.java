@@ -5,7 +5,6 @@
  */
 package Catalogs.FileIO;
 import Catalogs.Catalog;
-import Products.ProductParser;
 
 
 /**
@@ -16,13 +15,7 @@ public class CSVDataParser implements FileDataParser {
     
     @Override
     public Catalog parseData(Catalog data) {
-       ProductParser pp = new ProductParser();
-    
-        Catalog catalog = new Catalog(); 
-       
-       catalog = pp.addProducts( data);
-
-        return catalog;
+    return data;
     }
 
   
