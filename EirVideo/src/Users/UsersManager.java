@@ -14,18 +14,19 @@ import java.util.ArrayList;
 import java.util.List;
 public class UsersManager {
     
- 
-    private static List<Users> users = new ArrayList<>();
 
-    // Method to add users
-    public static void addUsers(Users user) {
-        users.add(user);
-    }
+    
+ private static final String Users_File = "users.txt";
+ private static List<Users> users = new ArrayList<>();
+ 
+
+    
+    
 
     // Method to validate the credential for log in 
     public static boolean validateCredentials(String Username, String Password) {
         for (Users user : users) {
-            if (user.getUsername().equals(Username) && user.getPassword().equals(Password)) {
+            if (user.getUsername().equals(Username) && user.getEncryptedPassword().equals(Password)) {
                 return true; // Credentials correct
             }
         }
