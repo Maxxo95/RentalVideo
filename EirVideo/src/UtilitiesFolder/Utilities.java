@@ -22,7 +22,19 @@ public class Utilities {
             scanner.next(); 
         }
         int userInput = scanner.nextInt();
+        
         scanner.nextLine();
         return userInput;
     }
+
+    public static String getUserStringInput() {
+  while (!scanner.hasNextLine()) {
+            System.out.println("Invalid input. Please enter a String.");
+            
+            scanner.next(); 
+        }
+        String userInput = scanner.nextLine();
+        scanner.nextLine();
+       
+        return userInput;    }
 }

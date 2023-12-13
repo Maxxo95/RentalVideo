@@ -33,6 +33,13 @@ public class Users {
         return EncryptedPassword;
     }
     
+    //SETERS to modify the stuff
+    public void setUsername(String Username){
+        this.Username = Username;
+    }
+    // y los demas para poder setear un valor fuera de aqui
+    
+    
     public String encryptPassword(String Password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");

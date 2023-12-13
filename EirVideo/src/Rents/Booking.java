@@ -10,50 +10,62 @@ import Products.Product;
 import Rents.PaymentMethods.CreditCardPay;
 import Rents.PaymentMethods.PaymentMethod;
 import Users.Users;
+import UtilitiesFolder.Utilities;
 
 /**
  *
  * @author maxim
  */
-class Booking {
+public class Booking {
+
     private PaymentMethod paymentMethod;
-   private Product product = new Movie("",0.0);
-   private Users user = new Users ("", "");
+    private Product product = new Movie("", 0.0);
+    private Users user = new Users("", "");
     private Boolean isPayed = false;
-       CreditCardPay creditCardPayment = new CreditCardPay();
+    CreditCardPay creditCardPayment = new CreditCardPay();
+    private Booking currentBooking;
+
+
     public Booking(Product product, Users customer) {
-       this.setProduct(product);
-       this.setUser(customer);
-       this.setPayment(isPayed);
-       this.setPaymentMethod(paymentMethod);
+        this.setProduct(product);
+        this.setUser(customer);
+        this.setPayment(isPayed);
+        this.setPaymentMethod(paymentMethod);
     }
 
     public void setProduct(Product product) {
-       this.product = product;
+        this.product = product;
     }
-      public void setPaymentMethod(PaymentMethod paymentMethod) {
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
+
     public void setUser(Users customer) {
-       this.user = customer;
+        this.user = customer;
     }
-    public void setPayment (Boolean isPayed){
+
+    public void setPayment(Boolean isPayed) {
         this.isPayed = isPayed;
     }
-   public Boolean IsPayed (){
-       return isPayed;
-   } 
-    
-   public void processPayment() {
+
+    public Boolean IsPayed() {
+        return isPayed;
+    }
+
+    public void processPayment(Booking book) {
         if (paymentMethod != null) {
-           paymentMethod.processPay();
-        //   creditCardPayment.processPay();
+            paymentMethod.processPay(book);
+            
         } else {
             System.out.println("No payment method set.");
-        } 
-    
-}
-    public void creditCard(){
-      creditCardPayment.processPay();
+        }
     }
+          
+
+        
+        
+    
+
+  
 }

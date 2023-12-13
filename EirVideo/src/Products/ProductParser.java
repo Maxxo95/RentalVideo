@@ -12,10 +12,10 @@ public class ProductParser {
   
      public Catalog addProducts(Catalog data) {
     Catalog rentCatalog = new Catalog();
-    for (Product product : data.getCatalog()) {
-        rentCatalog.addProduct(product);
+    for (Product product : data.getCatalog()) {//for each product of the catalog data that call getCatalog products
+        rentCatalog.addProduct(product); 
     }
-    return rentCatalog;
+    return rentCatalog;//this will pass the values to the catalog calling the function
 }
 
  

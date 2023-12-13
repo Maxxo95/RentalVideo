@@ -5,11 +5,13 @@
  */
 package Rents.PaymentMethods;
 
+import Rents.Booking;
+
 /**
  *
  * @author maxim
  */
 public interface PaymentMethod {
     
-    void processPay();
+    void processPay(Booking book);
 }
