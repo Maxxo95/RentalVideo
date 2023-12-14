@@ -40,10 +40,8 @@ public class FileOutput extends FileIO implements DataOutput{
 }
 }
 
-    @Override
-    public int updateData(Catalog currentCatalog, Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
+   
 
     
 }

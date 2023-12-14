@@ -11,7 +11,7 @@ import Catalogs.Catalog;
  *
  * @author maxim
  */
-public class CSVDataParser implements FileDataParser {
+public class CSVDataParser implements FileDataParser  {
     
     @Override
     public Catalog parseData(Catalog data) {

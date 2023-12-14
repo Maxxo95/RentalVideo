@@ -7,39 +7,32 @@ package Catalogs.FileIO;
 
 import Catalogs.Catalog;
 import Catalogs.DataIO.DataOutput;
+import Catalogs.DataIO.DataUpdate;
 import Products.Product;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author maxim
  */
-public class UpdateTimesViewed extends FileIO implements DataOutput {
+public class UpdateFile extends FileIO implements DataUpdate {
 
     int productLine;
-    Product product;
+     private ArrayList<Product> catalogUp = new ArrayList<>();
     int timesviewed;
     Catalog catalog = new Catalog();
-
+    CSVWriteData write = new CSVUpdateData(); 
+   
     @Override
-    public void saveData(Catalog currentCatalog) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
-    }
-
-    @Override
-    public int updateData(Catalog currentCatalog, Product moviePicked) {
-        for (int i = 0; i < currentCatalog.getCatalog().size(); i++) {
-            product = currentCatalog.getProductAtIndex(i);
-           // System.out.println(i + 1 + ".- " + product.getName() + " " + product.getPrice() + " Times Rented: " + product.getTimesviewed());
-            if (moviePicked.getName() == product.getName()) {
-                moviePicked.setTimesViewed(moviePicked.getTimesviewed() + 1);
-                productLine = i + 1;
-            }  
-                
-                try {
+     public Product updateData(Catalog currentCatalog, Product asset) {
+      asset= write.writeData(catalog, asset);
+         asset.setTimesViewed(asset.getTimesviewed() + 1);
+         try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".csv"));
                     catalog.setCatalog(currentCatalog.getCatalog());
                     bw.write("Name," + "Price," + "TimesViewed");
@@ -53,11 +46,10 @@ public class UpdateTimesViewed extends FileIO implements DataOutput {
 
                 } catch (IOException e) {
                     System.out.println(e);
-                }
-            }
-            return moviePicked.getTimesviewed();
+                }    
+       
         
-
+ return asset;
        
     }
 }

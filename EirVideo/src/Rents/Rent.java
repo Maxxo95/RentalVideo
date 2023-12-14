@@ -2,7 +2,7 @@ package Rents;
 
 import Catalogs.Catalog;
 import Catalogs.DataIO.DataOutput;
-import Catalogs.FileIO.UpdateTimesViewed;
+import Catalogs.DataIO.DataUpdate;
 import Products.Movie;
 import Products.Product;
 import Rents.PaymentMethods.CreditCardPay;

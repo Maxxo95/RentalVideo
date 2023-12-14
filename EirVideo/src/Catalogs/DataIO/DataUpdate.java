@@ -8,12 +8,11 @@ package Catalogs.DataIO;
 import Catalogs.Catalog;
 import Products.Product;
 
-
 /**
  *
  * @author maxim
  */
-public interface DataOutput {
-     public void saveData(Catalog currentCatalog);
-    
+public interface DataUpdate {
+         public Product updateData(Catalog currentCatalog, Product product);
+
 }

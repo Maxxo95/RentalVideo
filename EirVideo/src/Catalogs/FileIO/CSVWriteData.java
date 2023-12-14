@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Catalogs.DataIO;
+package Catalogs.FileIO;
 
 import Catalogs.Catalog;
 import Products.Product;
-
 
 /**
  *
  * @author maxim
  */
-public interface DataOutput {
-     public void saveData(Catalog currentCatalog);
-    
+public interface CSVWriteData {
+    public Product writeData(Catalog currentCatalog, Product moviePicked);
 }

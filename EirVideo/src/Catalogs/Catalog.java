@@ -23,6 +23,7 @@ public class Catalog implements DataToFileCatalog   {
 
     public Catalog() {
         this.getCatalog() ;
+        this.setCatalog(catalog);
     }
 
     public ArrayList<Product> getCatalog() {
