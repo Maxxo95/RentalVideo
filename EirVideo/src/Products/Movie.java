@@ -10,13 +10,24 @@ package Products;
  * @author maxim
  */
 public class Movie extends Product {
-   private int timesViewed ;
-
+String lenguaje;
+String runtime;
     public Movie(String name, Double price) {
         super(name, price);
         
     }
-
+   public String getLenguaje(){
+        return lenguaje;
+    }
+    public void setlenguaje(String lenguaje){
+        this.lenguaje = lenguaje;
+    }
+      public String getRuntime(){
+        return runtime;
+    }
+    public void setRuntime(String runtime){
+        this.runtime = runtime;
+    }
    
 
    

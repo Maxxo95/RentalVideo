@@ -31,7 +31,7 @@ public class UpdateFile extends FileIO implements DataUpdate {
     @Override
      public Product updateData(Catalog currentCatalog, Product asset) {
       asset= write.writeData(catalog, asset);
-         asset.setTimesViewed(asset.getTimesviewed() + 1);
+       //  asset.setTimesViewed(asset.getTimesviewed() + 1);
          try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".csv"));
                     catalog.setCatalog(currentCatalog.getCatalog());
