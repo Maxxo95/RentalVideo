@@ -11,6 +11,7 @@ import Catalogs.DataIO.DataInput;
 import Catalogs.DataIO.DataOutput;
 import Catalogs.FileIO.FileInput;
 import Catalogs.FileIO.FileOutput;
+import Products.Movie;
 import java.util.ArrayList;
 
 /**
@@ -19,27 +20,27 @@ import java.util.ArrayList;
  */
 public class Catalog implements DataToFileCatalog   {
 
-    private ArrayList<Product> catalog = new ArrayList<>();
+    private ArrayList<Movie> catalog = new ArrayList<>();
 
     public Catalog() {
         this.getCatalog() ;
         this.setCatalog(catalog);
     }
 
-    public ArrayList<Product> getCatalog() {
+    public ArrayList<Movie> getCatalog() {
         return catalog;
     }
     
 
-    public void setCatalog(ArrayList<Product> catalog) {
+    public void setCatalog(ArrayList<Movie> catalog) {
         this.catalog = catalog;
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(Movie product) {
         catalog.add(product);
     }
 
-    public void removeProduct(Product product) {
+    public void removeProduct(Movie product) {
         catalog.remove(product);
     }
 
@@ -49,11 +50,9 @@ public class Catalog implements DataToFileCatalog   {
 
     @Override
     public Catalog DatatoFileCatalog(Catalog movieCat) {
-        //input
-        DataInput input = new FileInput();
-        //get
-        movieCat = input.getData(); 
-        
+      
+          DataInput data =new FileInput();
+        movieCat = data.getData();
         //output
         DataOutput output = new FileOutput();
         output.saveData(movieCat);

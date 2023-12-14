@@ -8,6 +8,7 @@ package Catalogs.FileIO;
 import Catalogs.Catalog;
 import Catalogs.DataIO.DataOutput;
 import Catalogs.DataIO.DataUpdate;
+import Products.Movie;
 import Products.Product;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -32,13 +33,21 @@ public class UpdateFile extends FileIO implements DataUpdate {
      public Product updateData(Catalog currentCatalog, Product asset) {
       asset= write.writeData(catalog, asset);
        //  asset.setTimesViewed(asset.getTimesviewed() + 1);
-         try {
+      asset.setTimesViewed(asset.getTimesviewed()+1);
+        catalog.setCatalog(currentCatalog.getCatalog());
+        
+ return asset;
+       
+    }
+     @Override
+     public void reWriteCSV(Catalog catalogs){
+            try {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(filename + ".csv"));
-                    catalog.setCatalog(currentCatalog.getCatalog());
-                    bw.write("Name," + "Price," + "TimesViewed");
+                   
+                    bw.write("Name," + "Price," + "TimesViewed," +"Lenguage,"+"DurationTime" );
                     bw.newLine();
-                    for (Product product : catalog.getCatalog()) {
-                        bw.write(product.getName() + "," + product.getPrice() + "," + product.getTimesviewed());
+                    for (Movie product : catalogs.getCatalog()) {
+                        bw.write(product.getName() + "," + product.getPrice() + "," + product.getTimesviewed() + ","+ product.getLenguaje()+ ","  + product.getRuntime());
                         bw.newLine(); 
                     }
 
@@ -47,9 +56,5 @@ public class UpdateFile extends FileIO implements DataUpdate {
                 } catch (IOException e) {
                     System.out.println(e);
                 }    
-       
-        
- return asset;
-       
-    }
+     }
 }

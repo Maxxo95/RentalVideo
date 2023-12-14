@@ -1,8 +1,11 @@
 package Rents;
 
 import Catalogs.Catalog;
+import Catalogs.DataIO.DataInput;
 import Catalogs.DataIO.DataOutput;
 import Catalogs.DataIO.DataUpdate;
+import Catalogs.FileIO.FileInput;
+import Catalogs.FileIO.UpdateFile;
 import Products.Movie;
 import Products.Product;
 import Rents.PaymentMethods.CreditCardPay;
@@ -27,12 +30,15 @@ public class Rent {
     private Product pickedMovie = new Movie("", 0.0);
     private Product movie = new Movie("", 0.0); //Movie test
      private Product product ;
+       DataUpdate output = new UpdateFile();
     public Rent() {
         this.setMovieCatalog(movieCat);
-        movieCat = movieCat.DatatoFileCatalog(movieCat);
+     //   movieCat = movieCat.DatatoFileCatalog(movieCat);
     }
 
     public void setMovieCatalog(Catalog movieCat) {
+        DataInput data =new FileInput();
+        movieCat = data.getData();
         this.movieCat = movieCat;
     }
 
@@ -46,7 +52,9 @@ public class Rent {
             System.out.println(i + 1 + ".- " + movie.getName() + " " + movie.getPrice() + " Is available: " + movie.getAvailability());
         }
     }
-
+   public void rewrite(){
+        output.reWriteCSV(movieCat);
+   }
     public void startBooking() { //(Customer customer, Product product)
         System.out.println("Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();
@@ -87,11 +95,13 @@ public class Rent {
                     break;}
                      
                     else {
-                         DataOutput output = new UpdateTimesViewed();
+                       
                        //product.setTimesViewed((product.getTimesviewed())+1);
-                        product = currentBooking.getProduct(); 
-                      product.setTimesViewed( output.updateData(movieCat,product));
-                          
+                       
+                       product = currentBooking.getProduct(); 
+                           
+                          output.updateData(movieCat,product);
+                           product.setTimesViewed(product.getTimesviewed());
                          return;}
                      
                 case "2":

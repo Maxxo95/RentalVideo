@@ -20,7 +20,7 @@ public class FileInput extends FileIO implements DataInput {
     @Override
     public Catalog getData() {
         Catalog data = reader.readData(); //from csv movieReader 
-        FileDataParser catalogParser = new CSVDataParser(); // interface and then parse data Catalog
-       return catalogParser.parseData(data); // is a catalog passing its data
+      //  FileDataParser catalogParser = new CSVDataParser(); // interface and then parse data Catalog
+       return data; // is a catalog passing its data
     }
 }

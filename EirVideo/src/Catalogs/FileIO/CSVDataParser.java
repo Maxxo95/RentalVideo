@@ -10,7 +10,7 @@ import Catalogs.Catalog;
 /**
  *
  * @author maxim
- */
+ *//*
 public class CSVDataParser implements FileDataParser  {
     
     @Override

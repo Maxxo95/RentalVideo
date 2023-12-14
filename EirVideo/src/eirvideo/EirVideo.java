@@ -83,6 +83,7 @@ public class EirVideo {
                 case "2":                             
                    rent.startBooking();                  
                    rent.completeBooking();
+                   rent.rewrite();
                     break;
                 case "3":
                     System.out.println("Exiting the program, thanks for chosing EirVideo");

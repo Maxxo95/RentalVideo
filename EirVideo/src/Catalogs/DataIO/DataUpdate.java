@@ -14,5 +14,5 @@ import Products.Product;
  */
 public interface DataUpdate {
          public Product updateData(Catalog currentCatalog, Product product);
-
+             public void reWriteCSV(Catalog catalogs);
 }
