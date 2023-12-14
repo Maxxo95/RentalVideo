@@ -7,9 +7,11 @@ package Catalogs.FileIO;
 
 import Catalogs.Catalog;
 import Products.Product;
+import Rents.BookingHistory;
 import java.util.ArrayList;
 
 
 public interface CSVReaderCheker {
-      public Catalog readData();
+       Catalog readData();
+  //   BookingHistory getBookData():
 }

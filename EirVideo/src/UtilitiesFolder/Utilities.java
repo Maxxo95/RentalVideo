@@ -7,6 +7,7 @@ package UtilitiesFolder;
 
 import Catalogs.FileIO.FileIO;
 import Products.Product;
+import Rents.BookingHistory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -47,7 +48,30 @@ public class Utilities extends BookID {
         return -1; // return -1 to indicate an error
     }
     
-    
+ public void readBookHistory(){
+       try (BufferedReader reader = new BufferedReader(new FileReader(file.getFilename() + ".csv"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        String[] parts = line.split(", ");
+
+        if (parts.length == 3) {
+            int id = Integer.parseInt(parts[0].trim());
+            String movieTitle = parts[1].trim();
+            String customerName = parts[2].trim();
+
+            // Process or store the read data as needed
+            System.out.println("ID: " + id + ", Movie Title: " + movieTitle + ", Customer Name: " + customerName);
+        } else {
+            System.out.println("Invalid CSV format in line: " + line);
+        }
+    }
+} catch (IOException e) {
+    System.err.println("Error reading the file: " + e.getMessage());
+}
+
+        
+    }
+ 
     
     public static int getUserIntInput() {
         

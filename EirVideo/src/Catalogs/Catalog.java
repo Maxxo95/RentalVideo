@@ -64,7 +64,7 @@ public class Catalog implements DataToFileCatalog   {
 
     }
 
-    public Product getProductAtIndex(int index) {
+    public Movie getProductAtIndex(int index) {
         if (index >= 0 && index < catalog.size()) {
             return catalog.get(index);
         } else {

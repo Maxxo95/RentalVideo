@@ -18,19 +18,23 @@ import java.util.Scanner;
 public class Rent {
 
     
-    private int movieN = 0;
+    private int movieN ; //For choosing a product for the user
+    
     private Users user = new Users("User", "Pass1234");
+    private ArrayList<Booking> bookings; // booking history  
     
     private Catalog movieCat = new Catalog();
-    private Catalog activeMov = new Catalog();
+    //private Catalog activeMov = new Catalog(); 
 
-    private ArrayList<Booking> bookings; // booking history  
-    private Booking currentBooking;
+     private Booking currentBooking;
+    
     CreditCardPay creditCardPayment = new CreditCardPay();
-    private Product pickedMovie = new Movie("", 0.0);
-    private Product movie = new Movie("", 0.0); //Movie test
-     private Product product ;
-       DataUpdate output = new UpdateFile();
+    
+    private Movie pickedMovie ;  // start Booking
+    private Movie movie ; //Movie startMovies
+    private Product product ; //For booking
+    DataUpdate output = new UpdateFile();
+    
     public Rent() {
         this.setMovieCatalog(movieCat);
      //   movieCat = movieCat.DatatoFileCatalog(movieCat);
@@ -49,27 +53,26 @@ public class Rent {
     public void startMovies() {
         for (int i = 0; i < movieCat.getCatalog().size(); i++) {
             movie = movieCat.getProductAtIndex(i);
-            System.out.println(i + 1 + ".- " + movie.getName() + " " + movie.getPrice() + " Is available: " + movie.getAvailability());
+            System.out.println(i + 1 + ".- '" + movie.getName() + "' Price -" + movie.getPrice() + "€ Duration  " + movie.getRuntime()+ " minutes");
         }
     }
+    
    public void rewrite(){
         output.reWriteCSV(movieCat);
    }
+   
     public void startBooking() { //(Customer customer, Product product)
         System.out.println("Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();
         pickedMovie = movieCat.getProductAtIndex(movieN - 1);
-        System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + " This movie has been rented "+pickedMovie.getTimesviewed() + " times");
+        System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + " This movie has been rented "+pickedMovie.getTimesviewed() + " times" 
+        + "\n Original Lengauage" + pickedMovie.getLenguaje());
 
         currentBooking = new Booking(pickedMovie, user);
        
 
         System.out.println("\nChoose A payment Method");
-    }
-
-    
-    
-    
+    } 
     
     public void completeBooking() {
         Scanner scanner = new Scanner(System.in);
@@ -99,9 +102,9 @@ public class Rent {
                        //product.setTimesViewed((product.getTimesviewed())+1);
                        
                        product = currentBooking.getProduct(); 
-                           
-                          output.updateData(movieCat,product);
-                           product.setTimesViewed(product.getTimesviewed());
+                       output.updateData(movieCat,product);
+                       product.setTimesViewed(product.getTimesviewed());
+                       //bookings.a
                          return;}
                      
                 case "2":

@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Catalogs.DataIO;
-import Catalogs.Catalog;
-import Rents.BookingHistory;
+package Rents;
 
-
+import java.util.ArrayList;
 
 /**
  *
  * @author maxim
  */
-public interface DataInput {
-    Catalog getData();
-    void getBookData();
+public interface BookingHistoryImp {
+  
+   void addBooking(Booking booking);
+   ArrayList<Booking> getBookingHistory();
+   
 }
-

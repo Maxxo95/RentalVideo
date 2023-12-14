@@ -10,17 +10,24 @@ import Products.Product;
 import Catalogs.DataIO.DataInput;
 import java.util.ArrayList;
 import Catalogs.FileIO.CSVReaderCheker;
+import Rents.BookingHistory;
+import UtilitiesFolder.Utilities;
 /**
  *
  * @author maxim
  */
 public class FileInput extends FileIO implements DataInput {
     CSVReaderCheker reader = new CSVReaderDecorator();  //
-    
+    Utilities bookread = new Utilities();
     @Override
     public Catalog getData() {
         Catalog data = reader.readData(); //from csv movieReader 
       //  FileDataParser catalogParser = new CSVDataParser(); // interface and then parse data Catalog
        return data; // is a catalog passing its data
+    }
+    @Override 
+    public void getBookData(){
+        bookread.readBookHistory();
+      
     }
 }
