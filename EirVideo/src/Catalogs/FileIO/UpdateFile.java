@@ -27,7 +27,7 @@ public class UpdateFile extends FileIO implements DataUpdate {
      private ArrayList<Product> catalogUp = new ArrayList<>();
     int timesviewed;
     Catalog catalog = new Catalog();
-    CSVWriteData write = new CSVUpdateData(); 
+  //  CSVWriteData write = new CSVUpdateData(); 
    
     @Override
      public Product updateData(Catalog currentCatalog, Product asset) {
