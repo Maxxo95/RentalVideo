@@ -49,7 +49,7 @@ public class Utilities extends BookID {
     }
     
  public void readBookHistory(){
-       try (BufferedReader reader = new BufferedReader(new FileReader(file.getFilename() + ".csv"))) {
+       try (BufferedReader reader = new BufferedReader(new FileReader("History.csv"))) {
     String line;
     while ((line = reader.readLine()) != null) {
         String[] parts = line.split(", ");

@@ -33,6 +33,7 @@ public class Rent {
     private Movie pickedMovie ;  // start Booking
     private Movie movie ; //Movie startMovies
     private Product product ; //For booking
+     DataInput data =new FileInput();
     DataUpdate output = new UpdateFile();
     
     public Rent() {
@@ -41,11 +42,13 @@ public class Rent {
     }
 
     public void setMovieCatalog(Catalog movieCat) {
-        DataInput data =new FileInput();
+      
         movieCat = data.getData();
         this.movieCat = movieCat;
+        
+        
     }
-
+   
     public Catalog getMovieCatalog() {
         return movieCat;
     }
@@ -60,7 +63,9 @@ public class Rent {
    public void rewrite(){
         output.reWriteCSV(movieCat);
    }
-   
+   public void showBookHistory(){
+       data.getBookData();
+   }
     public void startBooking() { //(Customer customer, Product product)
         System.out.println("Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();

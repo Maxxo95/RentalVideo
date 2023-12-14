@@ -71,7 +71,9 @@ public class EirVideo {
                     + "\n Select an Option");
             System.out.println("1. Movies");
             System.out.println("2. Book a Product");
-            System.out.println("3. Salir");
+           System.out.println("3. ShowBookHistory");
+            System.out.println("4. Salir");
+            
             System.out.print("Please input numbers only: \n");
 
             String opcion = scanner.nextLine();
@@ -86,8 +88,12 @@ public class EirVideo {
                    rent.rewrite();
                     break;
                 case "3":
+                  rent.showBookHistory();
+                    break;
+               case "4":
                     System.out.println("Exiting the program, thanks for chosing EirVideo");
                     System.exit(0);
+               
                 default:
                     System.out.println("Please only enter a number available in the options showed");
             }

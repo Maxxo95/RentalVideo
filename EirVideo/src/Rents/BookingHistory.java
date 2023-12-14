@@ -18,10 +18,12 @@ public class BookingHistory implements BookingHistoryImp {
   ArrayList<Booking> bookList = new ArrayList<>();
 public BookingHistory(){
     this.bookList = new ArrayList<>();
+    
 }
  @Override
      public void addBooking(Booking booking) {
         bookList.add(booking);
+        
     }
 
     @Override
