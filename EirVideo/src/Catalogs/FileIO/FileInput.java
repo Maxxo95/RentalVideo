@@ -10,6 +10,7 @@ import Products.Product;
 import Catalogs.DataIO.DataInput;
 import java.util.ArrayList;
 import Catalogs.FileIO.CSVReaderCheker;
+import Rents.Booking;
 import Rents.BookingHistory;
 import UtilitiesFolder.Utilities;
 /**
@@ -26,8 +27,8 @@ public class FileInput extends FileIO implements DataInput {
        return data; // is a catalog passing its data
     }
     @Override 
-    public void getBookData(){
-        bookread.readBookHistory();
+    public void getBookData(Catalog movCat){
+        bookread.readBookHistory(movCat);
       
     }
 }

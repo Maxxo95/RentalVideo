@@ -21,7 +21,7 @@ public class Rent {
     private int movieN ; //For choosing a product for the user
     
     private Users user = new Users("User", "Pass1234");
-    private ArrayList<Booking> bookings; // booking history  
+    private BookingHistory bookings; // booking history  
     
     private Catalog movieCat = new Catalog();
     //private Catalog activeMov = new Catalog(); 
@@ -35,7 +35,7 @@ public class Rent {
     private Product product ; //For booking
      DataInput data =new FileInput();
     DataUpdate output = new UpdateFile();
-    
+    Utilities utilities = new Utilities();
     public Rent() {
         this.setMovieCatalog(movieCat);
      //   movieCat = movieCat.DatatoFileCatalog(movieCat);
@@ -62,9 +62,10 @@ public class Rent {
     
    public void rewrite(){
         output.reWriteCSV(movieCat);
+       // utilities.
    }
-   public void showBookHistory(){
-       data.getBookData();
+    public void sartBookHistory(){
+       data.getBookData(movieCat);
    }
     public void startBooking() { //(Customer customer, Product product)
         System.out.println("Please enter the number of the Movie you want to rent");
@@ -97,8 +98,9 @@ public class Rent {
                      
                     currentBooking.setPaymentMethod(creditCardPayment);
                      creditCardPayment.completeCreditCard(currentBooking, creditCardPayment);
-                     currentBooking.processPayment(currentBooking);
-                     
+                   int j =  currentBooking.processPayment(currentBooking);
+                     currentBooking.setID(j);
+                     System.out.println(currentBooking.getID());
                      if(currentBooking.IsPayed() == false){
                     break;}
                      
@@ -109,6 +111,7 @@ public class Rent {
                        product = currentBooking.getProduct(); 
                        output.updateData(movieCat,product);
                        product.setTimesViewed(product.getTimesviewed());
+                       
                        //bookings.a
                          return;}
                      
@@ -126,6 +129,8 @@ public class Rent {
         
           
     }
+
+  
     
     
 

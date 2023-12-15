@@ -5,6 +5,7 @@
  */
 package Catalogs.DataIO;
 import Catalogs.Catalog;
+import Rents.Booking;
 import Rents.BookingHistory;
 
 
@@ -15,6 +16,6 @@ import Rents.BookingHistory;
  */
 public interface DataInput {
     Catalog getData();
-    void getBookData();
+    void getBookData(Catalog movCat);
 }
 

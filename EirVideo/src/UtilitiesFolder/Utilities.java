@@ -5,9 +5,13 @@
  */
 package UtilitiesFolder;
 
+import Catalogs.Catalog;
 import Catalogs.FileIO.FileIO;
+import Products.Movie;
 import Products.Product;
+import Rents.Booking;
 import Rents.BookingHistory;
+import Users.Users;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -20,11 +24,13 @@ import java.util.Scanner;
  * @author maxim
  */
 public class Utilities extends BookID {
+     private Users customer = new Users("User", "Pass1234");
     private static Scanner scanner = new Scanner(System.in);
-
-  
+ private BookingHistory bookings = new BookingHistory();
+  Booking book  ;
     BookID file = new BookID();
-    
+   Movie porduct ; 
+   
   public int readAndUpdateBookID() {
         try (BufferedReader reader = new BufferedReader(new FileReader(file.getFilename() + ".txt"))) {
             String line = reader.readLine();
@@ -47,8 +53,8 @@ public class Utilities extends BookID {
 
         return -1; // return -1 to indicate an error
     }
-    
- public void readBookHistory(){
+    //BookingHistory
+ public void readBookHistory(Catalog movCat){
        try (BufferedReader reader = new BufferedReader(new FileReader("History.csv"))) {
     String line;
     while ((line = reader.readLine()) != null) {
@@ -58,9 +64,23 @@ public class Utilities extends BookID {
             int id = Integer.parseInt(parts[0].trim());
             String movieTitle = parts[1].trim();
             String customerName = parts[2].trim();
+           
+          ///////// This works but need to make it simpler as  it cubic and the
+          /////// run time its just to much 
+         /*
+          for (int i = 0; i < movCat.size(); i++) {
+             porduct =movCat.getProductAtIndex(i);
+             if(porduct.getName()==movieTitle){
+                 book.setProduct(porduct);
+                    book.setID(id);
+             book.setUser(customer);
+            
+            bookings.addBooking(book);
+            
+           
+            }}*/
 
-            // Process or store the read data as needed
-            System.out.println("ID: " + id + ", Movie Title: " + movieTitle + ", Customer Name: " + customerName);
+         System.out.println(bookings.getBookingHistory()+ "\nID: " + id + ", Movie Title: " + movieTitle + ", Customer Name: " + customerName);
         } else {
             System.out.println("Invalid CSV format in line: " + line);
         }

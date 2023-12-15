@@ -86,9 +86,10 @@ public class EirVideo {
                    rent.startBooking();                  
                    rent.completeBooking();
                    rent.rewrite();
+                   
                     break;
                 case "3":
-                  rent.showBookHistory();
+                 rent.sartBookHistory();
                     break;
                case "4":
                     System.out.println("Exiting the program, thanks for chosing EirVideo");

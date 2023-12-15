@@ -18,7 +18,8 @@ public class CreditCardPay implements PaymentMethod {
    private String cardNumber ="";
     private String expirationDate="" ;
     private String cvv="";
- private Product product ;   
+ private Product product ; 
+ private int idCount;
     //CreditCardPay creditCardPayment = new CreditCardPay();
     public String getCardNumber(){
         return cardNumber;
@@ -41,7 +42,7 @@ public class CreditCardPay implements PaymentMethod {
     
     
     @Override
-    public void processPay(Booking book) {
+    public int processPay(Booking book) {
        
     if (
      cardNumber.length() == 16 && cvv.length() == 3 && expirationDate.length() == 4) {
@@ -51,14 +52,18 @@ public class CreditCardPay implements PaymentMethod {
     System.out.println("CVV: " + cvv);
     System.out.println("Payment processed successfully!");
     book.setPayment(Boolean.TRUE);
-   System.out.println( "Total of Bookings " + book.IDcounter());
+    idCount =book.IDcounter();
+    
+   System.out.println( "Total of Bookings " + idCount);
    product =book.getProduct();
+   
    System.out.println(product.getName()+" "+ product.getPrice() + " This product has been rented "+ (product.getTimesviewed()+1)+ " times");
-} else {
+   return idCount;
+    } else {
     System.out.println("Payment processed Unsuccessfully!");
   //   System.out.print("Total of Bookings " +  book.IDcounter());
 }
-    }
+   return -1; }
 
     public void completeCreditCard(Booking currentBooking, CreditCardPay creditCardPayment) {
 

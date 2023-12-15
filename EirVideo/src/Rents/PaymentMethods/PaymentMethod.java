@@ -13,5 +13,5 @@ import Rents.Booking;
  */
 public interface PaymentMethod {
     
-    void processPay(Booking book);
+    int processPay(Booking book);
 }

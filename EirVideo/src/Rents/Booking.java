@@ -24,15 +24,24 @@ public class Booking {
     private Boolean isPayed = false;
     CreditCardPay creditCardPayment = new CreditCardPay();
     private Booking currentBooking;
-   
+   int id;
 
     public Booking(Product product, Users customer) {
         this.setProduct(product);
         this.setUser(customer);
         this.setPayment(isPayed);
         this.setPaymentMethod(paymentMethod);
+        this.setID(id);
     }
 
+    public void setID(int id){
+      this.id = id;
+      
+    }
+    public int getID(){
+        return this.id;
+    }
+    
     public void setProduct(Product product) {
         this.product = product;
     }
@@ -55,14 +64,14 @@ public class Booking {
         return isPayed;
     }
 
-    public void processPayment(Booking book) {
+    public int processPayment(Booking book) {
         if (paymentMethod != null) {
-            paymentMethod.processPay(book);
-            
+          id=  paymentMethod.processPay(book);
+         return id;   
         } else {
             System.out.println("No payment method set.");
         }
-        
+        return -1;
     }
     public int IDcounter(){
             Utilities ut = new Utilities();
