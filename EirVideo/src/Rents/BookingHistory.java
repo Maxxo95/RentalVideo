@@ -5,6 +5,7 @@
  */
 package Rents;
 
+import Products.Movie;
 import java.util.ArrayList;
 
 /**
@@ -30,11 +31,23 @@ public BookingHistory(){
     public ArrayList<Booking> getBookingHistory() {
         return  bookList;
     }
-    
+    public String getStringHistory(){
+        return  bookList.toString();
+    }
+    public int getSize(){
+        return bookList.size();
+    }
     public void setBookingHistory( ArrayList<Booking> bookList){
         this.bookList = bookList;
     }
- 
+   public Booking getBookingAtIndex(int index) {
+        if (index >= 0 && index < bookList.size()) {
+            return bookList.get(index);
+        } else {
+            // Handle the case where the index is out of bounds
+            return null; // You can return null or throw an exception, depending on your requirements.
+        }
+    }
     
    
 

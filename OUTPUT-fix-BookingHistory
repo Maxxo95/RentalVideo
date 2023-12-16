@@ -1,0 +1,96 @@
+run:
+
+ Main Menuu
+ Select an Option
+1. Movies
+2. Book a Product
+3. Salir
+Please input numbers only: 
+2
+Please enter the number of the Movie you want to rent
+16
+You have picked -The Basketball Diaries -Rate 6.99 This movie has been rented 0 times
+ Original Lengauage -en
+
+Choose A payment Method
+
+ Payment Menu
+ Pick a choice
+1. CreditCard
+2. GooglePay
+3. Cancel Booking
+Please input numbers only: 
+2
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+
+ Payment Menu
+ Pick a choice
+1. CreditCard
+2. GooglePay
+3. Cancel Booking
+Please input numbers only: 
+1
+Please type the 16 digits of your Credit/Debit card 
+ Then press Enter
+1234567890123456
+
+1234567890123456 16
+Please type the exp date MMYY card for example 1023 , Means october of the 23  
+ Then press Enter
+2134
+
+2134 4
+Please insert the 3 digits of the security code 
+ Then press Enter
+123
+
+123 3
+Processing credit card payment...
+Card Number: 1234567890123456
+Expiration Date: 2134
+CVV: 123
+Payment processed successfully!
+Total of Bookings 10
+The Basketball Diaries 6.99 This product has been rented 1 times
+10
+
+ Main Menuu
+ Select an Option
+1. Movies
+2. Book a Product
+3. Salir
+Please input numbers only: 
+2
+Please enter the number of the Movie you want to rent
+1
+You have picked -Heat -Rate 7.99 This movie has been rented 6 times
+ Original Lengauage -en
+
+Choose A payment Method
+
+ Payment Menu
+ Pick a choice
+1. CreditCard
+2. GooglePay
+3. Cancel Booking
+Please input numbers only: 
+2
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionThe Basketball Diaries
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+Under ConstructionGodzilla
+
+ Payment Menu
+ Pick a choice
+1. CreditCard
+2. GooglePay
+3. Cancel Booking
+Please input numbers only: 

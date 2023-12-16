@@ -20,6 +20,7 @@ import UtilitiesFolder.Utilities;
 public class FileInput extends FileIO implements DataInput {
     CSVReaderCheker reader = new CSVReaderDecorator();  //
     Utilities bookread = new Utilities();
+    BookingHistory book ;
     @Override
     public Catalog getData() {
         Catalog data = reader.readData(); //from csv movieReader 
@@ -27,8 +28,9 @@ public class FileInput extends FileIO implements DataInput {
        return data; // is a catalog passing its data
     }
     @Override 
-    public void getBookData(Catalog movCat){
-        bookread.readBookHistory(movCat);
-      
+    public BookingHistory getBookingsData(Catalog movCat){
+      book = new BookingHistory();
+      book=  bookread.readBookHistory(movCat);
+      return book;                  
     }
 }

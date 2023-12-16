@@ -16,6 +16,6 @@ import Rents.BookingHistory;
  */
 public interface DataInput {
     Catalog getData();
-    void getBookData(Catalog movCat);
+    BookingHistory getBookingsData(Catalog movCat);
 }
 

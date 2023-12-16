@@ -21,7 +21,7 @@ public class Rent {
     private int movieN ; //For choosing a product for the user
     
     private Users user = new Users("User", "Pass1234");
-    private BookingHistory bookings; // booking history  
+    private BookingHistory bookingHistory = new BookingHistory() ; // booking history  
     
     private Catalog movieCat = new Catalog();
     //private Catalog activeMov = new Catalog(); 
@@ -33,7 +33,7 @@ public class Rent {
     private Movie pickedMovie ;  // start Booking
     private Movie movie ; //Movie startMovies
     private Product product ; //For booking
-     DataInput data =new FileInput();
+     DataInput datainput =new FileInput();
     DataUpdate output = new UpdateFile();
     Utilities utilities = new Utilities();
     public Rent() {
@@ -43,7 +43,7 @@ public class Rent {
 
     public void setMovieCatalog(Catalog movieCat) {
       
-        movieCat = data.getData();
+        movieCat = datainput.getData();
         this.movieCat = movieCat;
         
         
@@ -65,14 +65,16 @@ public class Rent {
        // utilities.
    }
     public void sartBookHistory(){
-       data.getBookData(movieCat);
+       
+      bookingHistory =   datainput.getBookingsData(movieCat);
+      
    }
     public void startBooking() { //(Customer customer, Product product)
         System.out.println("Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();
         pickedMovie = movieCat.getProductAtIndex(movieN - 1);
         System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + " This movie has been rented "+pickedMovie.getTimesviewed() + " times" 
-        + "\n Original Lengauage" + pickedMovie.getLenguaje());
+        + "\n Original Lengauage -" + pickedMovie.getLenguaje());
 
         currentBooking = new Booking(pickedMovie, user);
        
@@ -90,7 +92,7 @@ public class Rent {
             System.out.println("2. GooglePay");
             System.out.println("3. Cancel Booking");
             System.out.print("Please input numbers only: \n");
-
+            sartBookHistory();           
             String opcion = scanner.nextLine();
 
             switch (opcion) {
@@ -111,14 +113,17 @@ public class Rent {
                        product = currentBooking.getProduct(); 
                        output.updateData(movieCat,product);
                        product.setTimesViewed(product.getTimesviewed());
-                       
-                       //bookings.a
+                   
+                       bookingHistory.addBooking(currentBooking);
                          return;}
                      
                 case "2":
-                              
-                  System.out.println("Under Construction" + currentBooking.IsPayed());
-                    break;
+                 for(int i =0 ;bookingHistory.getSize() > i; i++)  {       
+                    Booking test = bookingHistory.getBookingAtIndex(i);
+                    Product prod = test.getProduct() ;
+                  System.out.println("Under Construction" + prod.getName() );
+                 }
+                  break;
                 case "3":
                     System.out.println("Canceling the Payment");
                     return;
