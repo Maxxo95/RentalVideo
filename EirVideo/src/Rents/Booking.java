@@ -59,6 +59,9 @@ public class Booking {
     public void setUser(Users customer) {
         this.user = customer;
     }
+    public Users getUser(){
+        return user;
+    }
 
     public void setPayment(Boolean isPayed) {
         this.isPayed = isPayed;

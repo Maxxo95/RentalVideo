@@ -61,7 +61,8 @@ public class UsersManager {
                         if (j > 0) {
                             System.exit(0);
                         } else {
-                            return user;
+                             break;
+                           
                            
                         }
                     case 3:

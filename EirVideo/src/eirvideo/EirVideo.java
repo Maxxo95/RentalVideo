@@ -31,8 +31,8 @@ public class EirVideo {
                     + "\n Select an Option");
             System.out.println("1. Movies");
             System.out.println("2. Book a Product");
-
-            System.out.println("3. Salir");
+             System.out.println("3. Show your active Movies");
+            System.out.println("4. Salir");
             
             System.out.print("Please input numbers only: \n");
 
@@ -45,12 +45,13 @@ public class EirVideo {
                 case "2":                             
                    rent.startBooking();                  
                  rent.completeBooking();
-                   rent.rewrite();
+                   rent.rewriteCSV();
                    
                     break;
-               
-             
-               case "3":
+                case "3":
+                 rent.activeBookings();
+             break;
+               case "4":
                     System.out.println("Exiting the program, thanks for chosing EirVideo");
                     System.exit(0);
                 default:

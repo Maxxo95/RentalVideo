@@ -25,7 +25,7 @@ import java.util.Scanner;
  * @author maxim
  */
 public class Utilities extends BookID {
-     private Users customer = new Users("User", "Pass1234");
+    
     private static Scanner scanner = new Scanner(System.in);
  private BookingHistory bookings = new BookingHistory();
   Booking book   ;
@@ -68,10 +68,10 @@ public class Utilities extends BookID {
            Double price = parseDouble(parts[2].trim());
             String customerName = parts[3].trim();
             Movie porduct = new Movie("",0.0); 
-   
+          Users customer = new Users(customerName, "");
             porduct.setName(movieTitle);
            porduct.setPrice(price);
-           customer.setUsername(customerName);
+           
          book = new Booking(porduct, customer);
           book.setID(id);
        
@@ -93,6 +93,7 @@ public class Utilities extends BookID {
  public void UpdateBookHistoryCSV(BookingHistory history){
        try (BufferedWriter writer = new BufferedWriter(new FileWriter("History.csv"))) {
         for (Booking booking : history.getBookingHistory()) {
+              Users customer = booking.getUser();
             Product product = booking.getProduct();
             Users user = customer; // Assuming 'customer' is properly initialized
 
