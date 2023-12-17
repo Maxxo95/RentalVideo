@@ -41,17 +41,17 @@ public class CreditCardPay implements PaymentMethod {
     }
     
     
-    @Override
+    @Override           //Actuall implementation when a payment is done , first completeCreditCard() taking data from user and then process pay 
     public int processPay(Booking book) {
        
     if (
-     cardNumber.length() == 16 && cvv.length() == 3 && expirationDate.length() == 4) {
+     cardNumber.length() == 16 && cvv.length() == 3 && expirationDate.length() == 4) { // correct lenghts for logic card
     System.out.println("Processing credit card payment...");
     System.out.println("Card Number: " + cardNumber);
     System.out.println("Expiration Date: " + expirationDate);
     System.out.println("CVV: " + cvv);
     System.out.println("Payment processed successfully!");
-    book.setPayment(Boolean.TRUE);
+    book.setPayment(Boolean.TRUE); // if procces pay is true
     idCount =book.IDcounter();
     
    System.out.println( "Total of Bookings " + idCount);

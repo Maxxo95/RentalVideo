@@ -22,9 +22,9 @@ public class EirVideo {
     
     Rent rent = new Rent();          
     Scanner scanner = new Scanner(System.in); 
-    UsersManager usersMan = new UsersManager();
   
-   // usersMan.callMenu();
+  
+   
     rent.setUser();
              while (true) {
             System.out.println("\n Main Menuu"
@@ -40,9 +40,11 @@ public class EirVideo {
 
             switch (opcion) {
                 case "1":
+                     //Calling start movies
                     rent.startMovies();
                     break;
-                case "2":                             
+                case "2":   
+                    //Rent processing bookingsy
                    rent.startBooking();                  
                  rent.completeBooking();
                   

@@ -36,27 +36,26 @@ public class Rent {
     public Rent() {
         this.setMovieCatalog(movieCat);
     }
-
+//this will call the CSV File inputFIle methods to read the file and setting in the program memory
     public void setMovieCatalog(Catalog movieCat) {
         movieCat = datainput.readMoviesData();
         this.movieCat = movieCat;
     }
-     
+     //When the program loop has to check if booking is empty so it dont rewrite the array
     public void setBookHistory(BookingHistory bookingHistory) {
         if (bookingHistory.getSize() < 1) { //if booking is not initialaized start it
             bookingHistory = datainput.readBookingsData();
         } else {
         }
 
-    }
+    } // this might not be necesary 
 
    
-
+// setter
     public void setUser() {
         user = usersMan.callMenu();
-        //   System.out.println("test" + user.getUsername());
     }
-
+// print method of movies Catalog
     public void startMovies() {
         for (int i = 0; i < movieCat.getCatalog().size(); i++) {
             movie = movieCat.getProductAtIndex(i);
@@ -65,8 +64,7 @@ public class Rent {
     }
 
   
-
-    
+//this is for the Bookings saved in the memory accesing the time data of the bookings setted when a booking is completed
     public void activeBookings() {   //Booking History?
         for (int i = 0; bookingHistory.getSize() > i; i++) {
             Booking test = bookingHistory.getBookingAtIndex(i);
@@ -75,7 +73,7 @@ public class Rent {
 
             if (userLoop.getUsername().equals(user.getUsername()) && test.getFinishTime() != null && test.getFinishTime().isAfter(LocalDateTime.now())) {
 // Same reasoning that show book history but adding the booking times to chek if is active 
-                // This is the only part of the code that wont be saved in the .csv or .txt file and stored after the program is closed
+// This is the only part of the code that wont be saved in the .csv or .txt file and stored after the program is closed
                 System.out.println("-" + prod.getName() + " -Available until " + test.getFinishTime());
             }
         }
@@ -95,9 +93,10 @@ public class Rent {
 
         System.out.println("\nChoose A payment Method");
     }
-
+// Complete Booking Own Menu 
     public void completeBooking() {
         Scanner scanner = new Scanner(System.in);
+        
       if (bookingHistory.getSize() < 1) { //if booking is not initialaized start it
             bookingHistory = datainput.readBookingsData();
         } else {
@@ -116,28 +115,29 @@ public class Rent {
             switch (opcion) {
                 case "1":
 
-                    currentBooking.setPaymentMethod(creditCardPayment);
-                    creditCardPayment.completeCreditCard(currentBooking, creditCardPayment);
-                    int j = currentBooking.processPayment(currentBooking);
+                    currentBooking.setPaymentMethod(creditCardPayment); //setting the payment method to credit card
+                    creditCardPayment.completeCreditCard(currentBooking, creditCardPayment); // complete Pay procces method
+                    int j = currentBooking.processPayment(currentBooking); //retrives id and then set it to the currentBooking
                     currentBooking.setID(j);
                     
                     if (currentBooking.IsPayed() == false) { //if is false not payed go back
                         break;
                     } else { // else is payed so complete bookin proceadure
 
-                        product = currentBooking.getProduct();
+                        product = currentBooking.getProduct(); //retrive info of the booking to then print as wish
                         output.updateData(movieCat, product);
                         product.setTimesViewed(product.getTimesviewed());
                         currentBooking.setStartTime(LocalDateTime.now());
                         currentBooking.setFinishTime(LocalDateTime.now().plusMinutes(1));
-                        bookingHistory.addBooking(currentBooking);
-                        output.UpdateBookHistoryCSV(bookingHistory);
+                        bookingHistory.addBooking(currentBooking); //add the booking to the Booking history of the program
+                        output.UpdateBookHistoryCSV(bookingHistory);  //update file  writting the new history when a new book is procces
                         System.out.println("Booking info \n -Procceced " + currentBooking.getStartTime() + "\n -Ends " + currentBooking.getFinishTime());
-                        output.writeCSVMovies(movieCat);
+                        output.writeCSVMovies(movieCat);  // write the new file
                         return;
                     }
 
-                case "2":
+                case "2": //Check the csv of BookingHistory if the name matches the user it will show the bookings
+    
                     System.out.println(user.getUsername());
                      System.out.println("BookingID Name Price");
                     for (int i = 0; bookingHistory.getSize() > i; i++) {
@@ -160,4 +160,6 @@ public class Rent {
 
     }
 
+    
+   
 }

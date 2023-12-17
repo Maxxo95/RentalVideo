@@ -1,5 +1,5 @@
 Name,Price,TimesViewed,Lenguage,DurationTime
-Heat,7.99,14,en,170
+Heat,7.99,15,en,170
 Balto,6.99,3,en,78
 Nixon,6.99,4,en,192
 Casino,7.99,3,en,178
@@ -7,8 +7,8 @@ Sense and Sensibility,6.99,2,en,136
 Leaving Las Vegas,6.99,1,en,112
 Twelve Monkeys,6.99,4,en,129
 Se7en,7.99,3,en,127
-The Usual Suspects,7.99,4,en,106
-A Midwinter's Tale,7.99,0,en,99
+The Usual Suspects,7.99,5,en,106
+A Midwinter's Tale,7.99,2,en,99
 The Bridges of Madison County,6.99,3,en,135
 Braveheart,7.99,8,en,177
 Taxi Driver,7.99,12,en,114
@@ -18,3 +18,23 @@ The Basketball Diaries,6.99,3,en,102
 Apollo 13,6.99,4,en,140
 Crumb,7.99,9,en,119
 Living in Oblivion,6.99,5,en,89
+Reckless,9.99,12,en,91
+Safe,6.99,5,en,119
+Smoke,6.99,3,en,112
+Before the Rain,7.99,8,en,113
+Before Sunrise,7.99,4,en,105
+The Cure,6.99,0,en,97
+Clerks,6.99,3,en,92
+Death and the Maiden,6.99,8,en,103
+Dolores Claiborne,6.99,1,en,132
+Ed Wood,6.99,3,en,127
+Hoop Dreams,7.99,8,en,171
+Interview with the Vampire,6.99,2,en,123
+Star Wars,7.99,3,en,121
+A Little Princess,6.99,7,en,97
+Legends of the Fall,6.99,9,en,133
+Nina Takes a Lover,6.99,4,en,100
+Once Were Warriors,7.99,5,en,99
+Pulp Fiction,7.99,7,en,154
+Quiz Show,6.99,8,en,133
+The Shawshank Redemption,7.99,5,en,142

@@ -23,9 +23,8 @@ public class Booking {
     private Product product = new Movie("", 0.0);
     private Users user = new Users("", "");
     private Boolean isPayed = false;
-    CreditCardPay creditCardPayment = new CreditCardPay();
-    private Booking currentBooking;
-   int id;
+    private CreditCardPay creditCardPayment = new CreditCardPay(); //other payment can be started to process payment
+private   int id;
   private LocalDateTime startTime;
     private LocalDateTime finishTime;
     public Booking(Product product, Users customer) {

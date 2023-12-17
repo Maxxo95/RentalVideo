@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="IbTHPOekLIpRfXN_h18N" name="Page-1">
-        <mxGraphModel dx="2920" dy="2118" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="3430" dy="2211" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -8,12 +8,12 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="Product (abst)" style="swimlane;whiteSpace=wrap;html=1;startSize=20;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="-150" width="175" height="180" as="geometry">
+                    <mxGeometry x="130" y="-195" width="205" height="245" as="geometry">
                         <mxRectangle x="160" y="110" width="90" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="105" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-name : string&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; -price : double&lt;br&gt;-isAvailable : boolean&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+getName(): String&lt;br&gt;&amp;nbsp; &amp;nbsp;+getPrice(): double&lt;br&gt;+getAvailability(): boolean&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;+setName(string): void&lt;br&gt;&amp;nbsp; +setPrice(double) : void&lt;br&gt;+setAvailability(Boolean); void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="2" vertex="1">
-                    <mxGeometry x="-5" y="30" width="180" height="140" as="geometry"/>
+                <mxCell id="105" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-name : string&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; -price : double&lt;br&gt;-isAvailable : boolean&lt;br&gt;-tiemesViewed int&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+getName(): String&lt;br&gt;&amp;nbsp; &amp;nbsp;+getPrice(): double&lt;br&gt;+getAvailability(): boolean&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;+setName(string): void&lt;br&gt;&amp;nbsp; +setPrice(double) : void&lt;br&gt;+setAvailability(Boolean); void&lt;br&gt;+setTimesViewed(int);void&lt;br&gt;+getTimesviewed:int" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="2" vertex="1">
+                    <mxGeometry x="-5" y="40" width="180" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="Customer" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="60" y="310" width="240" height="250" as="geometry">
@@ -21,10 +21,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="101" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+getID(): int&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; +setID(id, int): void&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+getEmail(): String&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; +getPassword(): String&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+setID(int) : void&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; +loggedIn(boolean): void&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; +setEmail(email, String): void&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+setPassword(password, String): void&lt;br&gt;+login(username, password)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3" vertex="1">
-                    <mxGeometry x="-70" y="85" width="290" height="140" as="geometry"/>
-                </mxCell>
-                <mxCell id="98" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-customerID: int&lt;br&gt;-email: String&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-password: String&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-rentHistory: Booking[]&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-activeMovies: Catalog[]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3" vertex="1">
-                    <mxGeometry x="-75" y="15" width="230" height="90" as="geometry"/>
+                    <mxGeometry x="-70" y="100" width="290" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="Rent" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="400" y="130" width="260" height="260" as="geometry">
@@ -32,15 +29,15 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="107" value="-product: Product&lt;br&gt;-customer : Customer&lt;br&gt;-currentBooking: Booking&lt;br&gt;-history:BookingHistory&lt;br&gt;-movieCatalog: Catalog;&lt;br&gt;-activeMovies: Catalog&lt;br&gt;-CreditCardPayment: CreditCardPay&lt;br&gt;-product:pickedMovie;&lt;br&gt;-product: samplemovie&lt;br&gt;+Rent( )&amp;nbsp;&lt;br&gt;+startBooking(product, customer)&lt;br&gt;+completeCreditCard(currentBooking)&lt;br&gt;+setMovieCatalog(catalog:&lt;br&gt;+getMovieCatalog():Catalog;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="4" vertex="1">
-                    <mxGeometry x="10" y="20" width="230" height="220" as="geometry"/>
+                    <mxGeometry x="15" y="20" width="230" height="220" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="Booking" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="550" y="-170" width="280" height="273.75" as="geometry">
+                    <mxGeometry x="470" y="-270" width="340" height="355" as="geometry">
                         <mxRectangle x="612.5" y="-30" width="90" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="109" value="-Product : product&lt;br&gt;-Customer : customer&lt;br&gt;-PaymentMethod paymentMethod&lt;br&gt;-isPayed: false&amp;nbsp;&lt;br&gt;&lt;br&gt;+Booking(customer,product)&lt;br&gt;+setProduct(Product);&lt;br&gt;+setPaymentMethod);&lt;br&gt;+setUser(users)&lt;br&gt;+setPayment&lt;br&gt;+isPayed():void&lt;br&gt;+processPayment(booking)&lt;br&gt;+getBooking (); Booking&lt;br&gt;+payBooking(); void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5" vertex="1">
-                    <mxGeometry x="40" y="30" width="200" height="220" as="geometry"/>
+                <mxCell id="109" value="-Product : product&lt;br&gt;-Customer : customer&lt;br&gt;-PaymentMethod paymentMethod&lt;br&gt;-isPayed: false&amp;nbsp;&lt;br&gt;-id:int&lt;br&gt;-creditCardPayment:CreditCard&lt;br&gt;-LocalDateTime: startTime&lt;br&gt;-LocacDateTIme&lt;br&gt;&lt;br&gt;+Booking(customer,product)&lt;br&gt;+setProduct(Product);&lt;br&gt;+setPaymentMethod);&lt;br&gt;+setUser(users)&lt;br&gt;+setPayment&lt;br&gt;+isPayed():void&lt;br&gt;+processPayment(booking)&lt;br&gt;+getBooking (); Booking&lt;br&gt;+payBooking(); void&lt;br&gt;+setStartTime(localDateTime);void&lt;br&gt;+setFinishTime(localDiteTIme) :void&lt;br&gt;+getFinishTIme(); localDateTIme&lt;br&gt;+getStartTime():localDateTime" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5" vertex="1">
+                    <mxGeometry x="60" y="25" width="210" height="330" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="AddCustomer" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="420" y="415" width="240" height="75" as="geometry">
@@ -53,19 +50,19 @@
                 <mxCell id="8" value="Payment(Interface)" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="960" y="-20" width="180" height="122.5" as="geometry"/>
                 </mxCell>
-                <mxCell id="112" value="+proccessPayment(): void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="8" vertex="1">
-                    <mxGeometry y="40" width="160" height="30" as="geometry"/>
+                <mxCell id="112" value="+proccessPay(booking): int" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="8" vertex="1">
+                    <mxGeometry x="-5" y="40" width="170" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="BookingHistory&lt;br&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="770" y="162.5" width="190" height="105" as="geometry">
+                    <mxGeometry x="770" y="162.5" width="310" height="147.5" as="geometry">
                         <mxRectangle x="550" y="210" width="180" height="70" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="66" value="&lt;br&gt;&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="10" vertex="1">
                     <mxGeometry x="80" y="25" width="20" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="110" value="-history : Booking[]&amp;nbsp;&lt;br&gt;+updatehistory(history, booking)&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="10" vertex="1">
-                    <mxGeometry y="35" width="190" height="40" as="geometry"/>
+                <mxCell id="110" value="-book: Booking&lt;br&gt;int ID;&lt;br&gt;-bookList: ArrayList&amp;lt;Bookings&amp;gt;&lt;br&gt;+getStringHistory&lt;br&gt;+getSize():int&lt;br&gt;+setBookingHistory(ArrayList&amp;lt;booking&amp;gt;):void&lt;br&gt;+getBookingAtIndex(int): Booking" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="10" vertex="1">
+                    <mxGeometry x="25" y="25" width="260" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" value="Trends" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="840" y="325" width="130" height="135" as="geometry"/>
@@ -109,13 +106,13 @@
                         <mxPoint x="-10" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="46" value="Movies" style="swimlane;whiteSpace=wrap;html=1;startSize=20;" parent="1" vertex="1" collapsed="1">
-                    <mxGeometry x="-170" y="-180" width="90" height="30" as="geometry">
-                        <mxRectangle x="-170" y="-180" width="180" height="120" as="alternateBounds"/>
+                <mxCell id="46" value="Movies" style="swimlane;whiteSpace=wrap;html=1;startSize=20;rotation=0;" parent="1" vertex="1">
+                    <mxGeometry x="-250" y="-220" width="220.17" height="159.74" as="geometry">
+                        <mxRectangle x="-170" y="-180" width="90" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="141" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-name : string&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; -price : double&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+getName(): String&lt;br&gt;&amp;nbsp; &amp;nbsp;+getPrice(): double&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;+setName(string): void&lt;br&gt;&amp;nbsp; +setPrice(double) : void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="46" vertex="1">
-                    <mxGeometry x="-10" y="18.75" width="160" height="100" as="geometry"/>
+                <mxCell id="141" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-name : string&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; -price : double&lt;br&gt;-runtime= String&lt;br&gt;-lenguaje = runtime&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;+getName(): String&lt;br&gt;&amp;nbsp; &amp;nbsp;+getPrice(): double&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;+setName(string): void&lt;br&gt;&amp;nbsp; +setPrice(double) : void&lt;br&gt;+getLenguaje():String&lt;br&gt;+setLenguaje(String);void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;" parent="46" vertex="1">
+                    <mxGeometry x="20" y="10" width="160" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="48" value="Shows" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1" collapsed="1">
                     <mxGeometry x="-165" y="72.5" width="80" height="30" as="geometry">
@@ -131,7 +128,7 @@
                         <mxPoint x="540" y="240" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="73" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" target="10" edge="1" source="4">
+                <mxCell id="73" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="4" target="10" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="670" y="230" as="sourcePoint"/>
                         <mxPoint x="540" y="270" as="targetPoint"/>
@@ -204,10 +201,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="114" value="CreditCardPayment" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1280" y="-200" width="235" height="180" as="geometry"/>
+                    <mxGeometry x="1210" y="-260" width="322.5" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="116" value="-cardNumberl: String&lt;br&gt;- expirationDate: String&lt;br&gt;-cvv: String&lt;br&gt;+proccessPayment(): void&lt;br&gt;+getCardNumber():void&lt;br&gt;+setCardNumber(string)&lt;br&gt;+setExpirationDate(String):&lt;br&gt;+getExpirationDate():void&lt;br&gt;+getCVV(String:&lt;br&gt;+setCVV: void;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="114" vertex="1">
-                    <mxGeometry x="32.5" y="20" width="170" height="160" as="geometry"/>
+                <mxCell id="116" value="-cardNumberl: String&lt;br&gt;- expirationDate: String&lt;br&gt;-cvv: String&lt;br&gt;+proccessPayment(): void&lt;br&gt;+getCardNumber():void&lt;br&gt;+setCardNumber(string)&lt;br&gt;+setExpirationDate(String):&lt;br&gt;+getExpirationDate():void&lt;br&gt;+getCVV(String:&lt;br&gt;+setCVV: void;&lt;br&gt;+completeCreditCard(Booking, creditCardPayment);void" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="114" vertex="1">
+                    <mxGeometry x="1.25" y="29.740000000000002" width="320" height="170" as="geometry"/>
                 </mxCell>
                 <mxCell id="124" value="*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=14;" parent="1" connectable="0" vertex="1">
                     <mxGeometry x="320.0029709986156" y="227.49981127027877" as="geometry"/>
@@ -227,7 +224,7 @@
                         <mxPoint x="-89" y="-117" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="129" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
+                <mxCell id="129" value="" style="endArrow=classic;html=1;" parent="1" edge="1" target="105">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="60" y="-40" as="sourcePoint"/>
                         <mxPoint x="120" y="-40" as="targetPoint"/>
@@ -260,11 +257,11 @@
                 <mxCell id="137" value="&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22ddsd%22%20style%3D%22text%3Bhtml%3D1%3Balign%3Dcenter%3BverticalAlign%3Dmiddle%3Bresizable%3D0%3Bpoints%3D%5B%5D%3Bautosize%3D1%3BstrokeColor%3Dnone%3BfillColor%3Dnone%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%221290%22%20y%3D%22650%22%20width%3D%2250%22%20height%3D%2230%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1305" y="650" width="20" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="138" value="&lt;div&gt;*IIn the design of our system, dependencies play a crucial role in ensuring secure and flexible connections between key components. In the context of bookings and payments, we utilize dependencies to establish a secure link between the booking and payment modules. The payment module, designed as an abstract class, serves as a foundation for future implementations of various payment methods such as cryptocurrencies or Google Pay.&lt;/div&gt;&lt;div&gt;Similarly, in the interaction between the 'Add Customer' and 'Administrator' modules, a dependency relationship is established. In this case, 'Add Customer' acts as a dependency for the 'Customer' class, facilitating the addition of new customers as it serves a specific purpose in this context.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Moreover, our design incorporates a composition relationship between the 'Booking' and 'RentMovie' classes. This relationship signifies that a booking is an integral part of a movie rental, emphasizing the cohesive connection between these two components&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="-535" y="840" width="2380" height="70" as="geometry"/>
+                <mxCell id="138" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="645" y="855" width="20" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="143" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-                    <mxGeometry x="260" y="670" width="80" height="80" as="geometry"/>
+                <mxCell id="98" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-customerID: int&lt;br&gt;-email: String&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-password: String&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-rentHistory: Booking[]&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;-activeMovies: Catalog[]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="325" width="230" height="90" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
