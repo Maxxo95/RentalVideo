@@ -5,10 +5,9 @@
  */
 package Catalogs.FileIO;
 
-
-
 import Catalogs.Catalog;
 import Products.Product;
+import Rents.BookingHistory;
 import java.util.ArrayList;
 
 /**
@@ -16,17 +15,31 @@ import java.util.ArrayList;
  * @author Lecturer
  */
 public class CSVReaderDecorator extends FileIO implements CSVReaderCheker {
-    private CSVReaderCheker component = new CSVMovieReader(); // from here movie reader called from the other can be accesed 
+
+    private CSVReaderCheker csvMovie = new CSVReader(); // from here movie reader called from the other can be accesed 
     // as a show maybe with the decorator 
-    
+    private CSVReaderCheker csvBooking = new CSVReader(); // from here movie reader called from the other can be accesed 
+
     public void errorMessage() {
-        System.out.println("The file: " + filename + " cannot be located.");
+        System.out.println("The file: cannot be located.");
     }
-    
+
     @Override
-    public Catalog readData() {
-        Catalog data = component.readData();
-        if (data.isEmpty()) errorMessage();
+    public Catalog readMoviesData() {
+        Catalog data = csvMovie.readMoviesData();
+        if (data.isEmpty()) {
+            errorMessage();
+        }
+        return data;
+    }
+
+    @Override
+    public BookingHistory readBookingsData() {
+
+        BookingHistory data = csvBooking.readBookingsData();
+        if (data.getSize() < 0) {
+            errorMessage();
+        }
         return data;
     }
 }

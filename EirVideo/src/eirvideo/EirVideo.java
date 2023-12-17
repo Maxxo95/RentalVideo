@@ -45,7 +45,7 @@ public class EirVideo {
                 case "2":                             
                    rent.startBooking();                  
                  rent.completeBooking();
-                   rent.rewriteCSV();
+                  
                    
                     break;
                 case "3":

@@ -15,7 +15,7 @@ import Rents.BookingHistory;
  * @author maxim
  */
 public interface DataInput {
-    Catalog getData();
-    BookingHistory getBookingsData(Catalog movCat);
+    Catalog readMoviesData();
+    BookingHistory readBookingsData();
 }
 

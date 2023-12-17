@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 
 public interface CSVReaderCheker {
-       Catalog readData();
+       Catalog readMoviesData();
   //   BookingHistory getBookData():
+       BookingHistory readBookingsData();
 }

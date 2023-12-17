@@ -7,6 +7,7 @@ package Catalogs.DataIO;
 
 import Catalogs.Catalog;
 import Products.Product;
+import Rents.BookingHistory;
 
 /**
  *
@@ -14,5 +15,6 @@ import Products.Product;
  */
 public interface DataUpdate {
          public Product updateData(Catalog currentCatalog, Product product);
-             public void reWriteCSV(Catalog catalogs);
+         public void writeCSVMovies(Catalog catalogs);
+          public void UpdateBookHistoryCSV(BookingHistory history);
 }

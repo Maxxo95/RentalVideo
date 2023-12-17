@@ -7,11 +7,13 @@ package Catalogs.FileIO;
 
 import Catalogs.Catalog;
 import Products.Product;
+import Rents.BookingHistory;
 
 /**
  *
  * @author maxim
  */
-public interface CSVWriteData {
-    public Product writeData(Catalog currentCatalog, Product moviePicked);
+public interface CSVUpdaterWritter {
+public void writeCSVMovies(Catalog catalogs);
+ public void UpdateBookHistoryCSV(BookingHistory history);
 }

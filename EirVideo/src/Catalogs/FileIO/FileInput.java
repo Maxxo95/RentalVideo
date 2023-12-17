@@ -19,18 +19,20 @@ import UtilitiesFolder.Utilities;
  */
 public class FileInput extends FileIO implements DataInput {
     CSVReaderCheker reader = new CSVReaderDecorator();  //
-    Utilities bookread = new Utilities();
-    BookingHistory book ;
+   
+    //BookingHistory book ;
     @Override
-    public Catalog getData() {
-        Catalog data = reader.readData(); //from csv movieReader 
+    public Catalog readMoviesData() {
+        Catalog data = reader.readMoviesData(); //from csv movieReader 
       //  FileDataParser catalogParser = new CSVDataParser(); // interface and then parse data Catalog
        return data; // is a catalog passing its data
     }
+    
     @Override 
-    public BookingHistory getBookingsData(Catalog movCat){
-      book = new BookingHistory();
-      book=  bookread.readBookHistory(movCat);
-      return book;                  
+    public BookingHistory readBookingsData(){
+     
+         BookingHistory data = reader.readBookingsData();
+        
+      return data;                  
     }
 }
