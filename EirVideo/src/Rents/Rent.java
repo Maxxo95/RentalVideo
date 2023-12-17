@@ -89,10 +89,15 @@ public class Rent {
             System.out.println("\n Payment Menu"
                     + "\n Pick a choice");
             System.out.println("1. CreditCard");
-            System.out.println("2. GooglePay");
+            System.out.println("2. Show All Bookings History(Provitional just to show all bookings while coding)");
             System.out.println("3. Cancel Booking");
             System.out.print("Please input numbers only: \n");
-            sartBookHistory();           
+         if(bookingHistory.getSize() < 1 ){
+            sartBookHistory();    }
+         else{}
+            
+            
+            
             String opcion = scanner.nextLine();
 
             switch (opcion) {
@@ -115,13 +120,14 @@ public class Rent {
                        product.setTimesViewed(product.getTimesviewed());
                    
                        bookingHistory.addBooking(currentBooking);
+                      utilities.readUpdateBookHistory(bookingHistory);
                          return;}
                      
                 case "2":
                  for(int i =0 ;bookingHistory.getSize() > i; i++)  {       
                     Booking test = bookingHistory.getBookingAtIndex(i);
                     Product prod = test.getProduct() ;
-                  System.out.println("Under Construction" + prod.getName() );
+                  System.out.println( prod.getName()  );
                  }
                   break;
                 case "3":

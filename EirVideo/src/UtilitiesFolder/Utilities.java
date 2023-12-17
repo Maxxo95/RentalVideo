@@ -30,8 +30,6 @@ public class Utilities extends BookID {
  private BookingHistory bookings = new BookingHistory();
   Booking book   ;
     BookID file = new BookID();
-   Movie porduct = new Movie("",0.0); 
-   
   public int readAndUpdateBookID() {
         try (BufferedReader reader = new BufferedReader(new FileReader(file.getFilename() + ".txt"))) {
             String line = reader.readLine();
@@ -56,17 +54,24 @@ public class Utilities extends BookID {
     }
     //BookingHistory
  public BookingHistory readBookHistory(Catalog movCat){
-       try (BufferedReader reader = new BufferedReader(new FileReader("History.csv"))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-        String[] parts = line.split(", ");
+        try {
+            Scanner sc = new Scanner(new java.io.FileReader("History" + ".csv"));
+
+            // Skip the header row
+           if (sc.hasNext()) {
+                sc.nextLine();
+            }
+         
+            while (sc.hasNext()) {
+                String[] parts = sc.nextLine().split(",");
 
         if (parts.length == 4) {
             int id = Integer.parseInt(parts[0].trim());
             String movieTitle = parts[1].trim();
            Double price = parseDouble(parts[2].trim());
             String customerName = parts[3].trim();
-         
+            Movie porduct = new Movie("",0.0); 
+   
             porduct.setName(movieTitle);
            porduct.setPrice(price);
            customer.setUsername(customerName);
@@ -86,7 +91,7 @@ public class Utilities extends BookID {
            //  System.out.println(bookings.getBookingHistory()+ "\nID: " + id + ", Movie Title: " + movieTitle + ", Customer Name: " + customerName);
         
         } else {
-            System.out.println("Invalid CSV format in line: " + line);
+            System.out.println("Invalid CSV format in line: " );
             return null;
         }
     }
@@ -97,6 +102,26 @@ public class Utilities extends BookID {
  return bookings;
         
     }
+ 
+ public void readUpdateBookHistory(BookingHistory history){
+       try (BufferedWriter writer = new BufferedWriter(new FileWriter("History.csv"))) {
+        for (Booking booking : history.getBookingHistory()) {
+            Product product = booking.getProduct();
+            Users user = customer; // Assuming 'customer' is properly initialized
+
+            // Format the information as CSV
+            String line = String.format("%d, %s, %.2f, %s",
+                    booking.getID(), product.getName(), product.getPrice(),
+                    user.getUsername());
+
+            // Write the formatted line to the file
+            writer.write(line);
+            writer.newLine();
+        }
+    } catch (IOException e) {
+        System.err.println("Error writing to the file: " + e.getMessage());
+    }
+ }
  
     
     public static int getUserIntInput() {
