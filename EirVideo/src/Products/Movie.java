@@ -24,7 +24,7 @@ Double price;
        this.setName(name);
       this.setPrice(price);
       this.setAvailability(IsAvailable);
-      this.getTimesviewed();
+
       this.setlenguaje(lenguaje);
       this.setRuntime(runtime);
     }

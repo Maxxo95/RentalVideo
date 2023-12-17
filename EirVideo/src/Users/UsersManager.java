@@ -25,43 +25,9 @@ public class UsersManager {
     SaveUsers addUser;
     private static final String CSV_FILE_PATH = "data.csv"; 
     boolean isAuthenticated = false;
-    public void callMenu() {
-        Scanner scanner = new Scanner(System.in);
-/*
-        while (true) {
-            System.out.println("------------------------");
-            System.out.println("      LOGIN SYSTEM      ");
-            System.out.println("------------------------");
-            System.out.println("Select an option:");
-            System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
+    Users user  = new Users("","");
+    public Users callMenu() {
 
-            try {
-                int choice = scanner.nextInt();
-                scanner.nextLine();
-
-                switch (choice) {
-                    case 1:
-                        userlog.UserLogIn(scanner);
-                        break;
-                    case 2:
-
-                        addUser.register(scanner);
-                        break;
-                    case 3:
-                        System.out.println("Exiting program.");
-                        System.exit(0);
-                    default:
-                        System.out.println("Invalid choice. Please try again.");
-                }
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid option.");
-            }
-        }
-    }
-*/
            while (true) {
             System.out.println("------------------------");
             System.out.println("      LOGIN SYSTEM      ");
@@ -72,38 +38,52 @@ public class UsersManager {
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
 
-            try {
+            Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Enter your choice:");
+            if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-                scanner.nextLine();
+                scanner.nextLine(); 
 
                 switch (choice) {
                     case 1:
-                        int i =login(scanner);
-                         if(i > 0){
-                            return;
+                        user = login(scanner);
+                        if (user.getUsername() == "") {
+                            break;
+                        } else {
+                              return user;                
+                            
+                          
                         }
-                         else{
-                        break;
-                         }
                     case 2:
-                       int j = register(scanner);
-                        if(j > 0){
-                               System.exit(0);
-                        }else{
-                        break;}
+                        int j = register(scanner);
+                        if (j > 0) {
+                            System.exit(0);
+                        } else {
+                            return user;
+                           
+                        }
                     case 3:
                         System.out.println("Exiting program.");
                         System.exit(0);
                     default:
                         System.out.println("Invalid choice. Please try again.");
                 }
-            } catch (Exception e) {
+            }   
+            else {
                 System.out.println("Invalid input. Please enter a valid option.");
+                scanner.nextLine(); // Consume the invalid input
+          break;
+                
             }
+          
         }
-    }
+    }}
+        
+    
 
-    private  int login(Scanner scanner) {
+    private  Users login(Scanner scanner) {
         System.out.print("Enter your email: ");
         String email = scanner.nextLine();
 
@@ -118,7 +98,9 @@ public class UsersManager {
                 isAuthenticated = true;
                 System.out.println("Login successful!");
                 System.out.println("Welcome, " + record[2] + " " + record[3] + "!");
-               return 1;
+               user.setUsername(record[0]);
+               user.setPass(record[1]);
+                return user;
                 
             }
         }
@@ -126,12 +108,12 @@ public class UsersManager {
 
         if (!isAuthenticated) {
             System.out.println("Login failed. Please check your email and password.");
-        return -1;
+         return user;
         }
-         return -1;
+         return user;
     }
 
-    private static int register(Scanner scanner) {
+    private  int register(Scanner scanner) {
         System.out.print("Enter your email: ");
         String email = scanner.nextLine();
 

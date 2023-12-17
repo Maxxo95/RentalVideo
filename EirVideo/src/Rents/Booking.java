@@ -11,6 +11,7 @@ import Rents.PaymentMethods.CreditCardPay;
 import Rents.PaymentMethods.PaymentMethod;
 import Users.Users;
 import UtilitiesFolder.Utilities;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -25,13 +26,16 @@ public class Booking {
     CreditCardPay creditCardPayment = new CreditCardPay();
     private Booking currentBooking;
    int id;
-
+  private LocalDateTime startTime;
+    private LocalDateTime finishTime;
     public Booking(Product product, Users customer) {
         this.setProduct(product);
         this.setUser(customer);
         this.setPayment(isPayed);
         this.setPaymentMethod(paymentMethod);
         this.setID(id);
+        this.setStartTime(startTime);
+        this.setFinishTime(finishTime);
     }
 
     public void setID(int id){
@@ -79,7 +83,21 @@ public class Booking {
             
         }
           
+      public LocalDateTime getStartTime() {
+        return startTime;
+    }
 
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(LocalDateTime finishTime) {
+        this.finishTime = finishTime;
+    }
         
         
     

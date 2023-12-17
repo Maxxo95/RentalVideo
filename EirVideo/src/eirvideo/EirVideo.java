@@ -7,6 +7,7 @@ package eirvideo;
 
 
 
+import Rents.BookingHistory;
 import Rents.Rent;
 
 import Users.Users;
@@ -22,15 +23,15 @@ public class EirVideo {
     Rent rent = new Rent();          
     Scanner scanner = new Scanner(System.in); 
     UsersManager usersMan = new UsersManager();
-   
-    usersMan.callMenu();
-    
+  
+   // usersMan.callMenu();
+    rent.setUser();
              while (true) {
             System.out.println("\n Main Menuu"
                     + "\n Select an Option");
             System.out.println("1. Movies");
             System.out.println("2. Book a Product");
-           
+
             System.out.println("3. Salir");
             
             System.out.print("Please input numbers only: \n");
@@ -43,15 +44,15 @@ public class EirVideo {
                     break;
                 case "2":                             
                    rent.startBooking();                  
-                   rent.completeBooking();
+                 rent.completeBooking();
                    rent.rewrite();
                    
                     break;
                
+             
                case "3":
                     System.out.println("Exiting the program, thanks for chosing EirVideo");
                     System.exit(0);
-               
                 default:
                     System.out.println("Please only enter a number available in the options showed");
             }

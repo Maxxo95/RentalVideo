@@ -11,7 +11,9 @@ import Products.Product;
 import Rents.PaymentMethods.CreditCardPay;
 
 import Users.Users;
+import Users.UsersManager;
 import UtilitiesFolder.Utilities;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,7 +27,7 @@ public class Rent {
     
     private Catalog movieCat = new Catalog();
     //private Catalog activeMov = new Catalog(); 
-
+ private UsersManager usersMan = new UsersManager();
      private Booking currentBooking;
     
     CreditCardPay creditCardPayment = new CreditCardPay();
@@ -37,22 +39,24 @@ public class Rent {
     DataUpdate output = new UpdateFile();
     Utilities utilities = new Utilities();
     public Rent() {
-        this.setMovieCatalog(movieCat);
-     //   movieCat = movieCat.DatatoFileCatalog(movieCat);
+    this.setMovieCatalog(movieCat);
+          
+//   movieCat = movieCat.DatatoFileCatalog(movieCat);
     }
-
-    public void setMovieCatalog(Catalog movieCat) {
-      
+    
+    public void setMovieCatalog(Catalog movieCat) {      
         movieCat = datainput.getData();
-        this.movieCat = movieCat;
-        
-        
+        this.movieCat = movieCat;        
     }
+    
    
     public Catalog getMovieCatalog() {
         return movieCat;
     }
-
+    public void setUser(){
+      user =  usersMan.callMenu();
+   //   System.out.println("test" + user.getUsername());
+    }
     public void startMovies() {
         for (int i = 0; i < movieCat.getCatalog().size(); i++) {
             movie = movieCat.getProductAtIndex(i);
@@ -70,7 +74,7 @@ public class Rent {
       
    }
     public void startBooking() { //(Customer customer, Product product)
-        System.out.println("Please enter the number of the Movie you want to rent");
+        System.out.println(user.getUsername() +" Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();
         pickedMovie = movieCat.getProductAtIndex(movieN - 1);
         System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + " This movie has been rented "+pickedMovie.getTimesviewed() + " times" 
@@ -118,12 +122,14 @@ public class Rent {
                        product = currentBooking.getProduct(); 
                        output.updateData(movieCat,product);
                        product.setTimesViewed(product.getTimesviewed());
-                   
+                       currentBooking.setStartTime(LocalDateTime.now());
+                     currentBooking.setFinishTime(LocalDateTime.now().plusMinutes(1));
                        bookingHistory.addBooking(currentBooking);
-                      utilities.readUpdateBookHistory(bookingHistory);
-                         return;}
+                     utilities.UpdateBookHistoryCSV(bookingHistory);
+                       System.out.println("Booking info \n" + currentBooking.getStartTime() + "\n"+currentBooking.getFinishTime());
+                         return ;}
                      
-                case "2":
+              case "2":
                  for(int i =0 ;bookingHistory.getSize() > i; i++)  {       
                     Booking test = bookingHistory.getBookingAtIndex(i);
                     Product prod = test.getProduct() ;
@@ -132,7 +138,7 @@ public class Rent {
                   break;
                 case "3":
                     System.out.println("Canceling the Payment");
-                    return;
+                    return ;
                 default:
                     System.out.println("Please only enter a number available in the options showed");
             }
@@ -142,7 +148,7 @@ public class Rent {
     }
 
   
-    
+
     
 
 }

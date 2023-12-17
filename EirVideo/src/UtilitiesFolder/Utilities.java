@@ -74,18 +74,8 @@ public class Utilities extends BookID {
            customer.setUsername(customerName);
          book = new Booking(porduct, customer);
           book.setID(id);
-          ///////// This works but need to make it simpler as  it cubic and the
-          /////// run time its just to much 
-         /*
-          for (int i = 0; i < movCat.size(); i++) {
-             porduct =movCat.getProductAtIndex(i);
-             if(porduct.getName()==movieTitle){
-                 book.setProduct(porduct);
-                    book.setID(id);
-             book.setUser(customer);
-             }}*/
+       
             bookings.addBooking(book);
-           //  System.out.println(bookings.getBookingHistory()+ "\nID: " + id + ", Movie Title: " + movieTitle + ", Customer Name: " + customerName);
         
         } else {
             System.out.println("Invalid CSV format in line: " );
@@ -99,8 +89,8 @@ public class Utilities extends BookID {
  return bookings;
         
     }
- 
- public void readUpdateBookHistory(BookingHistory history){
+
+ public void UpdateBookHistoryCSV(BookingHistory history){
        try (BufferedWriter writer = new BufferedWriter(new FileWriter("History.csv"))) {
         for (Booking booking : history.getBookingHistory()) {
             Product product = booking.getProduct();
