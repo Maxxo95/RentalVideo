@@ -86,7 +86,7 @@ public class Rent {
         System.out.println(user.getUsername() + " Please enter the number of the Movie you want to rent");
         movieN = Utilities.getUserIntInput();
         pickedMovie = movieCat.getProductAtIndex(movieN - 1);
-        System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + " This movie has been rented " + pickedMovie.getTimesviewed() + " times"
+        System.out.println("You have picked -" + pickedMovie.getName() + " -Rate " + pickedMovie.getPrice() + "€ This movie has been rented " + pickedMovie.getTimesviewed() + " times"
                 + "\n Original Lengauage -" + pickedMovie.getLenguaje());
 
         currentBooking = new Booking(pickedMovie, user);
@@ -120,7 +120,7 @@ public class Rent {
                     creditCardPayment.completeCreditCard(currentBooking, creditCardPayment);
                     int j = currentBooking.processPayment(currentBooking);
                     currentBooking.setID(j);
-                    System.out.println(currentBooking.getID());
+                    
                     if (currentBooking.IsPayed() == false) { //if is false not payed go back
                         break;
                     } else { // else is payed so complete bookin proceadure
@@ -132,20 +132,21 @@ public class Rent {
                         currentBooking.setFinishTime(LocalDateTime.now().plusMinutes(1));
                         bookingHistory.addBooking(currentBooking);
                         output.UpdateBookHistoryCSV(bookingHistory);
-                        System.out.println("Booking info \n" + currentBooking.getStartTime() + "\n" + currentBooking.getFinishTime());
+                        System.out.println("Booking info \n -Procceced " + currentBooking.getStartTime() + "\n -Ends " + currentBooking.getFinishTime());
                         output.writeCSVMovies(movieCat);
                         return;
                     }
 
                 case "2":
                     System.out.println(user.getUsername());
-
+                     System.out.println("BookingID Name Price");
                     for (int i = 0; bookingHistory.getSize() > i; i++) {
                         Booking test = bookingHistory.getBookingAtIndex(i);
                         Product prod = test.getProduct();
                         Users userLoop = test.getUser();
+                       
                         if (userLoop.getUsername().equals(user.getUsername())) { // Use equals() for string comparison
-                            System.out.println("-" + prod.getName() + " -" + userLoop.getUsername());
+                            System.out.println("  -" +test.getID()+"   -" + prod.getName() + " -" + prod.getPrice() + "€");
                         }
                     }
                     break;

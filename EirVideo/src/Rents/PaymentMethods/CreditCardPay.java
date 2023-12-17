@@ -57,7 +57,7 @@ public class CreditCardPay implements PaymentMethod {
    System.out.println( "Total of Bookings " + idCount);
    product =book.getProduct();
    
-   System.out.println(product.getName()+" "+ product.getPrice() + " This product has been rented "+ (product.getTimesviewed()+1)+ " times");
+   System.out.println(product.getName()+" "+ product.getPrice() + "€ This product has been rented "+ (product.getTimesviewed()+1)+ " times");
    return idCount;
     } else {
     System.out.println("Payment processed Unsuccessfully!");
