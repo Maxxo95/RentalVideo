@@ -17,22 +17,24 @@ import java.util.List;
 public class LoadUsers {
     private static final String Users_File = "users.txt";
  private static List<Users> users = new ArrayList<>();
+    private static final String CSV_FILE_PATH = "data.csv"; 
     
-    public static void LoadUsersFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(Users_File))) {
+    
+    
+    
+    
+   public  ArrayList<String[]> readCsvFile() {
+        ArrayList<String[]> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE_PATH))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 2) {
-                    users.add(new Users(parts[0], parts[1]));
-                }
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                records.add(values);
             }
         } catch (IOException e) {
-            // El archivo no existe, no hacer nada.
+            e.printStackTrace();
         }
-    }
-     public static void LoadUsers() {
-        LoadUsersFromFile();
+        return records;
     }
 }
 

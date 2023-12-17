@@ -57,10 +57,7 @@ public class Utilities extends BookID {
         try {
             Scanner sc = new Scanner(new java.io.FileReader("History" + ".csv"));
 
-            // Skip the header row
-           if (sc.hasNext()) {
-                sc.nextLine();
-            }
+        
          
             while (sc.hasNext()) {
                 String[] parts = sc.nextLine().split(",");
